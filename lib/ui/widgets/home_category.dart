@@ -25,7 +25,7 @@ class HomeCategory extends StatelessWidget {
           children: [
             Container(
               width: getProportionateScreenWidth(120),
-              height: getProportionateScreenHeight(120),
+              height: getProportionateScreenHeight(100),
               margin: EdgeInsets.only(bottom: getProportionateScreenHeight(8)),
               decoration: BoxDecoration(
                 color: Colors.blue,
@@ -46,8 +46,8 @@ class HomeCategory extends StatelessWidget {
               child: Text(
                 title,
                 style: kPrimaryTextStyle.copyWith(
-                  fontWeight: kBoldFontWeight,
-                  fontSize: getProportionateScreenWidth(14),
+                  fontWeight: FontWeight.w600,
+                  fontSize: getProportionateScreenWidth(12),
                 ),
               ),
             ),
