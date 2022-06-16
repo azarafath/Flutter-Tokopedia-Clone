@@ -226,12 +226,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               ],
             ),
             FloatBubble(
-              show: status,
-              child: Image.network(
-                'https://ecs7.tokopedia.net/img/blog/promo/2021/02/FLOATING-ICON-HARI-IBU.gif',
-                height: getProportionateScreenHeight(120),
-              ),
-            ),
+                show: status,
+                child: Image.asset(
+                  'assets/floating.gif',
+                  height: getProportionateScreenHeight(120),
+                )),
           ],
         ),
       ),

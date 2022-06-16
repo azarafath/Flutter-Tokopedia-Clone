@@ -76,68 +76,69 @@ class HomeHeader extends StatelessWidget {
             ],
           ),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Row(
-                children: [
-                  Container(
-                    margin:
-                        EdgeInsets.only(right: getProportionateScreenWidth(8)),
-                    width: getProportionateScreenWidth(20),
-                    child: Image.asset('assets/gopay.png'),
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Rp.1.000.000',
-                        style: kPrimaryTextStyle.copyWith(
-                          fontWeight: kBoldFontWeight,
-                          fontSize: getProportionateScreenWidth(13),
+              Expanded(
+                child: Row(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(
+                          right: getProportionateScreenWidth(10),
+                          left: getProportionateScreenWidth(10)),
+                      width: getProportionateScreenWidth(20),
+                      child: Image.asset('assets/gopay.png'),
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Rp.1.000.000',
+                          style: kPrimaryTextStyle.copyWith(
+                            fontWeight: FontWeight.w600,
+                            fontSize: getProportionateScreenWidth(11),
+                          ),
                         ),
-                      ),
-                      Text(
-                        '2000 Coins',
-                        style: kPrimaryTextStyle.copyWith(
-                            fontWeight: kNormalFontWeight,
-                            fontSize: getProportionateScreenWidth(12)),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-              SizedBox(
-                width: getProportionateScreenWidth(20),
-              ),
-              Row(
-                children: [
-                  Container(
-                    margin:
-                        EdgeInsets.only(right: getProportionateScreenWidth(8)),
-                    width: getProportionateScreenWidth(23),
-                    child: Image.asset('assets/silver.png'),
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Member Silver',
-                        style: kPrimaryTextStyle.copyWith(
-                          fontWeight: kBoldFontWeight,
-                          fontSize: getProportionateScreenWidth(13),
+                        Text(
+                          '2000 Coins',
+                          style: kPrimaryTextStyle.copyWith(
+                              fontWeight: kLightFontWeight,
+                              fontSize: getProportionateScreenWidth(10)),
                         ),
-                      ),
-                      Text(
-                        '30 Kupon Baru',
-                        style: kPrimaryTextStyle.copyWith(
-                            fontWeight: kNormalFontWeight,
-                            fontSize: getProportionateScreenWidth(12)),
-                      ),
-                    ],
-                  )
-                ],
+                      ],
+                    )
+                  ],
+                ),
+              ),
+              Expanded(
+                child: Row(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(
+                          right: getProportionateScreenWidth(10)),
+                      width: getProportionateScreenWidth(23),
+                      child: Image.asset('assets/silver.png'),
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Member Silver',
+                          style: kPrimaryTextStyle.copyWith(
+                            fontWeight: FontWeight.w600,
+                            fontSize: getProportionateScreenWidth(11),
+                          ),
+                        ),
+                        Text(
+                          '30 Kupon Baru',
+                          style: kPrimaryTextStyle.copyWith(
+                              fontWeight: kNormalFontWeight,
+                              fontSize: getProportionateScreenWidth(10)),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               )
             ],
           ),

@@ -29,38 +29,42 @@ class SpesialTokopedia extends StatelessWidget {
           SizedBox(
             height: getProportionateScreenHeight(20),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Column(
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              Row(
                 children: [
-                  SizedBox(
-                    height: getProportionateScreenHeight(118),
-                    child: Image.asset('assets/banner_1.webp'),
+                  Expanded(
+                    child: SizedBox(
+                      child: Image.asset('assets/banner_1.webp'),
+                    ),
                   ),
                   SizedBox(
-                    height: getProportionateScreenHeight(6),
+                    width: getProportionateScreenWidth(5),
                   ),
-                  SizedBox(
-                    height: getProportionateScreenHeight(118),
-                    child: Image.asset('assets/banner_3.webp'),
+                  Expanded(
+                    child: SizedBox(
+                      child: Image.asset('assets/banner_2.webp'),
+                    ),
                   ),
                 ],
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              SizedBox(
+                height: getProportionateScreenHeight(5),
+              ),
+              Row(
                 children: [
-                  SizedBox(
-                    height: getProportionateScreenHeight(118),
-                    child: Image.asset('assets/banner_2.webp'),
+                  Expanded(
+                    child: SizedBox(
+                      child: Image.asset('assets/banner_3.webp'),
+                    ),
                   ),
                   SizedBox(
-                    height: getProportionateScreenHeight(6),
+                    width: getProportionateScreenWidth(5),
                   ),
-                  SizedBox(
-                    height: getProportionateScreenHeight(118),
-                    child: Image.asset('assets/banner_4.webp'),
+                  Expanded(
+                    child: SizedBox(
+                      child: Image.asset('assets/banner_4.webp'),
+                    ),
                   ),
                 ],
               ),
