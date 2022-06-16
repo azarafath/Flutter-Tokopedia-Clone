@@ -36,7 +36,7 @@ class HomeHeader extends StatelessWidget {
                   text: TextSpan(
                     text: 'Dikirim ke',
                     style: kPrimaryTextStyle.copyWith(
-                      fontSize: getProportionateScreenWidth(14),
+                      fontSize: getProportionateScreenWidth(12),
                       fontWeight: kNormalFontWeight,
                       color: kWhiteColor,
                     ),
@@ -44,7 +44,7 @@ class HomeHeader extends StatelessWidget {
                       TextSpan(
                         text: ' KodingWorks',
                         style: kPrimaryTextStyle.copyWith(
-                          fontSize: getProportionateScreenWidth(14),
+                          fontSize: getProportionateScreenWidth(12),
                           fontWeight: kBoldFontWeight,
                           color: kWhiteColor,
                         ),
@@ -95,14 +95,14 @@ class HomeHeader extends StatelessWidget {
                           'Rp.1.000.000',
                           style: kPrimaryTextStyle.copyWith(
                             fontWeight: FontWeight.w600,
-                            fontSize: getProportionateScreenWidth(8),
+                            fontSize: getProportionateScreenWidth(9),
                           ),
                         ),
                         Text(
                           '2000 Coins',
                           style: kPrimaryTextStyle.copyWith(
                               fontWeight: kLightFontWeight,
-                              fontSize: getProportionateScreenWidth(7)),
+                              fontSize: getProportionateScreenWidth(8)),
                         ),
                       ],
                     )
@@ -126,14 +126,14 @@ class HomeHeader extends StatelessWidget {
                           'Member Silver',
                           style: kPrimaryTextStyle.copyWith(
                             fontWeight: FontWeight.w600,
-                            fontSize: getProportionateScreenWidth(8),
+                            fontSize: getProportionateScreenWidth(9),
                           ),
                         ),
                         Text(
                           '30 Kupon Baru',
                           style: kPrimaryTextStyle.copyWith(
                               fontWeight: kNormalFontWeight,
-                              fontSize: getProportionateScreenWidth(7)),
+                              fontSize: getProportionateScreenWidth(8)),
                         ),
                       ],
                     )
