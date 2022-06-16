@@ -46,7 +46,7 @@ class _HomeFlashSaleState extends State<HomeFlashSale> {
                 Text(
                   'Spesial warga Semarang',
                   style: kPrimaryTextStyle.copyWith(
-                    fontSize: getProportionateScreenWidth(18),
+                    fontSize: getProportionateScreenWidth(15),
                     fontWeight: kBoldFontWeight,
                   ),
                 ),
@@ -58,7 +58,7 @@ class _HomeFlashSaleState extends State<HomeFlashSale> {
                     Text(
                       'Berakhir dalam:  ',
                       style: kPrimaryTextStyle.copyWith(
-                        fontSize: getProportionateScreenWidth(12),
+                        fontSize: getProportionateScreenWidth(11),
                         fontWeight: kMediumFontWeight,
                       ),
                     ),
@@ -68,13 +68,13 @@ class _HomeFlashSaleState extends State<HomeFlashSale> {
                             color: kRedColor),
                         child: Padding(
                           padding: EdgeInsets.symmetric(
-                              horizontal: getProportionateScreenWidth(8),
-                              vertical: getProportionateScreenHeight(5)),
+                              horizontal: getProportionateScreenWidth(6),
+                              vertical: getProportionateScreenHeight(4)),
                           child: Row(
                             children: [
                               const Icon(
-                                Icons.timer,
-                                size: 15,
+                                Icons.access_time_sharp,
+                                size: 12,
                                 color: kWhiteColor,
                               ),
                               SizedBox(
@@ -83,7 +83,7 @@ class _HomeFlashSaleState extends State<HomeFlashSale> {
                               Text(
                                 '${endTimer.inHours} : ${endTimer.inMinutes % 60} : ${endTimer.inSeconds % 60}',
                                 style: kPrimaryTextStyle.copyWith(
-                                    fontSize: getProportionateScreenWidth(12),
+                                    fontSize: getProportionateScreenWidth(10),
                                     color: kWhiteColor,
                                     fontWeight: kBoldFontWeight),
                               ),
@@ -94,6 +94,7 @@ class _HomeFlashSaleState extends State<HomeFlashSale> {
                     Text(
                       'Lihat semua',
                       style: kPrimaryTextStyle.copyWith(
+                        fontSize: getProportionateScreenWidth(12),
                         fontWeight: kBoldFontWeight,
                         color: kPrimaryColor,
                       ),

@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:tokped/models/product.dart';
 
 class ProductService {
-  String baseUrl = 'url';
+  String baseUrl = 'https://e9b50a41-d1ad-4231-b653-141f1603cafa.mock.pstmn.io';
 
   Future<List<Product>> getProduct() async {
     var url = Uri.parse('$baseUrl/products');

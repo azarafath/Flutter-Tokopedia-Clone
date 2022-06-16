@@ -47,7 +47,7 @@ class HomeCategory extends StatelessWidget {
                 title,
                 style: kPrimaryTextStyle.copyWith(
                   fontWeight: FontWeight.w600,
-                  fontSize: getProportionateScreenWidth(12),
+                  fontSize: getProportionateScreenWidth(11),
                 ),
               ),
             ),
@@ -70,7 +70,7 @@ class HomeCategory extends StatelessWidget {
             child: Text(
               'Kategori Pilihan',
               style: kPrimaryTextStyle.copyWith(
-                fontSize: getProportionateScreenWidth(16),
+                fontSize: getProportionateScreenWidth(15),
                 fontWeight: kBoldFontWeight,
               ),
             ),

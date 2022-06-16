@@ -21,7 +21,7 @@ class SpesialTokopedia extends StatelessWidget {
             child: Text(
               'Spesial di Tokopedia hari ini',
               style: kPrimaryTextStyle.copyWith(
-                fontSize: getProportionateScreenWidth(16),
+                fontSize: getProportionateScreenWidth(15),
                 fontWeight: kBoldFontWeight,
               ),
             ),

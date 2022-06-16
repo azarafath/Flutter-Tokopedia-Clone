@@ -19,7 +19,7 @@ class HomePromo extends StatelessWidget {
               Text(
                 'Jangan sampai kehabisan',
                 style: kPrimaryTextStyle.copyWith(
-                  fontSize: getProportionateScreenWidth(16),
+                  fontSize: getProportionateScreenWidth(15),
                   fontWeight: kBoldFontWeight,
                 ),
               ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:tokped/size_config.dart';
 import 'package:tokped/theme.dart';
 import 'package:tokped/ui/widgets/custom_clip_class.dart';
@@ -36,7 +37,7 @@ class HomeHeader extends StatelessWidget {
                   text: TextSpan(
                     text: 'Dikirim ke',
                     style: kPrimaryTextStyle.copyWith(
-                      fontSize: getProportionateScreenWidth(12),
+                      fontSize: getProportionateScreenWidth(11),
                       fontWeight: kNormalFontWeight,
                       color: kWhiteColor,
                     ),
@@ -44,7 +45,7 @@ class HomeHeader extends StatelessWidget {
                       TextSpan(
                         text: ' KodingWorks',
                         style: kPrimaryTextStyle.copyWith(
-                          fontSize: getProportionateScreenWidth(12),
+                          fontSize: getProportionateScreenWidth(11),
                           fontWeight: kBoldFontWeight,
                           color: kWhiteColor,
                         ),
@@ -75,70 +76,194 @@ class HomeHeader extends StatelessWidget {
               ),
             ],
           ),
+          child: skeleton(),
+        )
+      ],
+    );
+  }
+
+  Widget loaded() {
+    return Row(
+      children: [
+        Expanded(
           child: Row(
             children: [
-              Expanded(
-                child: Row(
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(
-                          right: getProportionateScreenWidth(10),
-                          left: getProportionateScreenWidth(10)),
-                      width: getProportionateScreenWidth(15),
-                      child: Image.asset('assets/gopay.png'),
+              Container(
+                margin: EdgeInsets.only(
+                    right: getProportionateScreenWidth(10),
+                    left: getProportionateScreenWidth(10)),
+                width: getProportionateScreenWidth(15),
+                child: Image.asset('assets/gopay.png'),
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Rp.1.000.000',
+                    style: kPrimaryTextStyle.copyWith(
+                      fontWeight: FontWeight.w600,
+                      fontSize: getProportionateScreenWidth(9),
                     ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Rp.1.000.000',
-                          style: kPrimaryTextStyle.copyWith(
-                            fontWeight: FontWeight.w600,
-                            fontSize: getProportionateScreenWidth(9),
-                          ),
-                        ),
-                        Text(
-                          '2000 Coins',
-                          style: kPrimaryTextStyle.copyWith(
-                              fontWeight: kLightFontWeight,
-                              fontSize: getProportionateScreenWidth(8)),
-                        ),
-                      ],
-                    )
-                  ],
+                  ),
+                  Text(
+                    '2000 Coins',
+                    style: kPrimaryTextStyle.copyWith(
+                        fontWeight: kLightFontWeight,
+                        fontSize: getProportionateScreenWidth(8)),
+                  ),
+                ],
+              )
+            ],
+          ),
+        ),
+        Expanded(
+          child: Row(
+            children: [
+              Container(
+                margin: EdgeInsets.only(right: getProportionateScreenWidth(10)),
+                width: getProportionateScreenWidth(18),
+                child: Image.asset('assets/silver.png'),
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Member Silver',
+                    style: kPrimaryTextStyle.copyWith(
+                      fontWeight: FontWeight.w600,
+                      fontSize: getProportionateScreenWidth(9),
+                    ),
+                  ),
+                  Text(
+                    '30 Kupon Baru',
+                    style: kPrimaryTextStyle.copyWith(
+                        fontWeight: kNormalFontWeight,
+                        fontSize: getProportionateScreenWidth(8)),
+                  ),
+                ],
+              )
+            ],
+          ),
+        )
+      ],
+    );
+  }
+
+  Widget skeleton() {
+    return Row(
+      children: [
+        Expanded(
+          child: Row(
+            children: [
+              Shimmer.fromColors(
+                baseColor: kLineDarkColor,
+                highlightColor: kWhiteGreyColor,
+                child: Container(
+                  margin: EdgeInsets.only(
+                      right: getProportionateScreenWidth(10),
+                      left: getProportionateScreenWidth(10)),
+                  width: getProportionateScreenWidth(15),
+                  height: getProportionateScreenHeight(15),
+                  decoration: const BoxDecoration(
+                    color: Colors.grey,
+                    shape: BoxShape.circle,
+                  ),
                 ),
               ),
-              Expanded(
-                child: Row(
-                  children: [
-                    Container(
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Shimmer.fromColors(
+                    baseColor: kLineDarkColor,
+                    highlightColor: kWhiteGreyColor,
+                    child: Container(
                       margin: EdgeInsets.only(
-                          right: getProportionateScreenWidth(10)),
-                      width: getProportionateScreenWidth(18),
-                      child: Image.asset('assets/silver.png'),
+                          bottom: getProportionateScreenHeight(4)),
+                      decoration: BoxDecoration(
+                        color: Colors.grey,
+                        borderRadius: BorderRadius.circular(
+                          getProportionateScreenWidth(20),
+                        ),
+                      ),
+                      width: getProportionateScreenWidth(65),
+                      height: getProportionateScreenHeight(8),
                     ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Member Silver',
-                          style: kPrimaryTextStyle.copyWith(
-                            fontWeight: FontWeight.w600,
-                            fontSize: getProportionateScreenWidth(9),
-                          ),
+                  ),
+                  Shimmer.fromColors(
+                    baseColor: kLineDarkColor,
+                    highlightColor: kWhiteGreyColor,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.grey,
+                        borderRadius: BorderRadius.circular(
+                          getProportionateScreenWidth(20),
                         ),
-                        Text(
-                          '30 Kupon Baru',
-                          style: kPrimaryTextStyle.copyWith(
-                              fontWeight: kNormalFontWeight,
-                              fontSize: getProportionateScreenWidth(8)),
-                        ),
-                      ],
-                    )
-                  ],
+                      ),
+                      width: getProportionateScreenWidth(30),
+                      height: getProportionateScreenHeight(8),
+                    ),
+                  ),
+                ],
+              )
+            ],
+          ),
+        ),
+        Expanded(
+          child: Row(
+            children: [
+              Shimmer.fromColors(
+                baseColor: kLineDarkColor,
+                highlightColor: kWhiteGreyColor,
+                child: Container(
+                  margin: EdgeInsets.only(
+                      right: getProportionateScreenWidth(10),
+                      left: getProportionateScreenWidth(10)),
+                  width: getProportionateScreenWidth(15),
+                  height: getProportionateScreenHeight(15),
+                  decoration: const BoxDecoration(
+                    color: Colors.grey,
+                    shape: BoxShape.circle,
+                  ),
                 ),
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Shimmer.fromColors(
+                    baseColor: kLineDarkColor,
+                    highlightColor: kWhiteGreyColor,
+                    child: Container(
+                      margin: EdgeInsets.only(
+                          bottom: getProportionateScreenHeight(4)),
+                      decoration: BoxDecoration(
+                        color: Colors.grey,
+                        borderRadius: BorderRadius.circular(
+                          getProportionateScreenWidth(20),
+                        ),
+                      ),
+                      width: getProportionateScreenWidth(65),
+                      height: getProportionateScreenHeight(8),
+                    ),
+                  ),
+                  Shimmer.fromColors(
+                    baseColor: kLineDarkColor,
+                    highlightColor: kWhiteGreyColor,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.grey,
+                        borderRadius: BorderRadius.circular(
+                          getProportionateScreenWidth(20),
+                        ),
+                      ),
+                      width: getProportionateScreenWidth(30),
+                      height: getProportionateScreenHeight(8),
+                    ),
+                  ),
+                ],
               )
             ],
           ),

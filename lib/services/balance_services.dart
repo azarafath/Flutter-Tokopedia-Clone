@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:tokped/models/balance.dart';
 
 class BalanceService {
-  String baseUrl = 'url';
+  String baseUrl = 'https://e9b50a41-d1ad-4231-b653-141f1603cafa.mock.pstmn.io';
 
   Future<Balance> getBalance() async {
     var url = Uri.parse('$baseUrl/balance');

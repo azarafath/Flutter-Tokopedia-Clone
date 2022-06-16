@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:tokped/models/carousel.dart';
 
 class CarouselService {
-  String baseUrl = 'url';
+  String baseUrl = 'https://e9b50a41-d1ad-4231-b653-141f1603cafa.mock.pstmn.io';
 
   Future<List<Carousel>> getProduct() async {
     var url = Uri.parse('$baseUrl/carousel');
