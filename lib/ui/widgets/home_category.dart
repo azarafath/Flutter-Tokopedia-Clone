@@ -24,8 +24,8 @@ class HomeCategory extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              width: getProportionateScreenWidth(120),
-              height: getProportionateScreenHeight(100),
+              width: getProportionateScreenWidth(110),
+              height: getProportionateScreenHeight(92),
               margin: EdgeInsets.only(bottom: getProportionateScreenHeight(8)),
               decoration: BoxDecoration(
                 color: Colors.blue,
@@ -42,7 +42,7 @@ class HomeCategory extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: getProportionateScreenHeight(30),
+              height: getProportionateScreenHeight(27),
               child: Text(
                 title,
                 style: kPrimaryTextStyle.copyWith(

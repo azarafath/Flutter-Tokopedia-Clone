@@ -13,7 +13,7 @@ class HomeHeader extends StatelessWidget {
         ClipPath(
           clipper: ClipPathClass(),
           child: Container(
-            height: getProportionateScreenHeight(105),
+            height: getProportionateScreenHeight(110),
             color: kPrimaryColor,
           ),
         ),

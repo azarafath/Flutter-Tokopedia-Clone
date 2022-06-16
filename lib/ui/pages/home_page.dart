@@ -121,18 +121,18 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
     PreferredSizeWidget appBar() {
       return AppBar(
-        toolbarHeight: getProportionateScreenHeight(48),
+        toolbarHeight: getProportionateScreenHeight(55),
         backgroundColor: _animationBackground.value,
         elevation: 0,
         flexibleSpace: Container(
           padding: EdgeInsets.only(
-              left: getProportionateScreenWidth(18),
-              top: getProportionateScreenHeight(32),
-              right: getProportionateScreenWidth(12)),
+              left: getProportionateScreenWidth(13),
+              top: getProportionateScreenHeight(35),
+              right: getProportionateScreenWidth(13)),
           child: Row(children: [
             Expanded(
               child: Container(
-                height: getProportionateScreenHeight(35),
+                height: getProportionateScreenHeight(37),
                 decoration: BoxDecoration(
                   color: kWhiteColor,
                   borderRadius: BorderRadius.circular(
