@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:tokped/size_config.dart';
 import 'package:tokped/theme.dart';
@@ -22,7 +20,7 @@ class ProductTile extends StatelessWidget {
         vertical: getProportionateScreenHeight(10),
         horizontal: getProportionateScreenWidth(5),
       ),
-      height: getProportionateScreenHeight(230),
+      height: getProportionateScreenHeight(260),
       width: getProportionateScreenWidth(120),
       decoration: BoxDecoration(
         color: kWhiteColor,
@@ -46,7 +44,7 @@ class ProductTile extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            height: getProportionateScreenHeight(130),
+            height: getProportionateScreenHeight(140),
             width: double.infinity,
           ),
           Padding(

@@ -1,13 +1,95 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:tokped/size_config.dart';
+import 'package:tokped/theme.dart';
 import 'package:tokped/ui/widgets/icon_menu_widget.dart';
 
-class HomeMenu extends StatelessWidget {
+class HomeMenu extends StatefulWidget {
   const HomeMenu({Key? key}) : super(key: key);
 
   @override
+  State<HomeMenu> createState() => _HomeMenuState();
+}
+
+class _HomeMenuState extends State<HomeMenu> {
+  bool isLoading = true;
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(seconds: 3), () {
+      setState(() {
+        isLoading = false;
+      });
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
+    Widget buildCarousel() {
+      return CarouselSlider(
+        options: CarouselOptions(viewportFraction: 0.95, aspectRatio: 50 / 16),
+        items: [
+          'assets/carousel_1.jpg',
+          'assets/carousel_2.jpg',
+        ].map((i) {
+          return Builder(
+            builder: (BuildContext context) {
+              return Container(
+                margin: const EdgeInsets.symmetric(horizontal: 5),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.asset(
+                    i,
+                    fit: BoxFit.contain,
+                  ),
+                ),
+              );
+            },
+          );
+        }).toList(),
+      );
+    }
+
+    Widget skeletonCarousel() {
+      return CarouselSlider(
+        options: CarouselOptions(viewportFraction: 0.95, aspectRatio: 50 / 16),
+        // item shimmer container
+        items: [
+          Shimmer.fromColors(
+            baseColor: kLineDarkColor,
+            highlightColor: kWhiteGreyColor,
+            child: Container(
+              margin: const EdgeInsets.symmetric(horizontal: 5),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Container(
+                  color: Colors.grey[300],
+                  height: getProportionateScreenHeight(50),
+                  width: double.infinity,
+                ),
+              ),
+            ),
+          ),
+          Shimmer.fromColors(
+            baseColor: kLineDarkColor,
+            highlightColor: kWhiteGreyColor,
+            child: Container(
+              margin: const EdgeInsets.symmetric(horizontal: 5),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Container(
+                  color: Colors.grey[300],
+                  height: getProportionateScreenHeight(50),
+                  width: double.infinity,
+                ),
+              ),
+            ),
+          ),
+        ],
+      );
+    }
+
     return Column(
       children: [
         SingleChildScrollView(
@@ -64,29 +146,7 @@ class HomeMenu extends StatelessWidget {
         SizedBox(
           height: getProportionateScreenHeight(15),
         ),
-        CarouselSlider(
-          options:
-              CarouselOptions(viewportFraction: 0.95, aspectRatio: 50 / 16),
-          items: [
-            'assets/carousel_1.jpg',
-            'assets/carousel_2.jpg',
-          ].map((i) {
-            return Builder(
-              builder: (BuildContext context) {
-                return Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 5),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: Image.asset(
-                      i,
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                );
-              },
-            );
-          }).toList(),
-        ),
+        isLoading ? skeletonCarousel() : buildCarousel(),
         SizedBox(
           height: getProportionateScreenHeight(15),
         ),

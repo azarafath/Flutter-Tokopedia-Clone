@@ -6,6 +6,8 @@ const Color kPrimaryColor2 = Color(0xff00AA5B);
 const Color kWhiteColor = Color(0xffffffff);
 const Color kBlackColor = Color(0xff31353B);
 const Color kRedColor = Color(0xffE02954);
+const Color kLineDarkColor = Color(0xffEAEAEA);
+const Color kWhiteGreyColor = Color(0xffF1F1F5);
 
 const FontWeight kBoldFontWeight = FontWeight.w700;
 const FontWeight kNormalFontWeight = FontWeight.w400;

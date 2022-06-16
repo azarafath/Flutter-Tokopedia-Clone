@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:tokped/size_config.dart';
 import 'package:tokped/theme.dart';
 import 'package:tokped/ui/widgets/product_tile_widget.dart';
+import 'package:tokped/ui/widgets/skeleton_product_tile_widget.dart';
 
 class HomeFlashSale extends StatefulWidget {
   const HomeFlashSale({Key? key}) : super(key: key);
@@ -13,6 +14,7 @@ class HomeFlashSale extends StatefulWidget {
 }
 
 class _HomeFlashSaleState extends State<HomeFlashSale> {
+  bool isLoading = true;
   Duration endTimer = const Duration(hours: 12);
   late Timer timer;
   @override
@@ -21,6 +23,11 @@ class _HomeFlashSaleState extends State<HomeFlashSale> {
     timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
         endTimer -= const Duration(seconds: 1);
+      });
+    });
+    Future.delayed(const Duration(seconds: 5), () {
+      setState(() {
+        isLoading = false;
       });
     });
   }
@@ -117,26 +124,44 @@ class _HomeFlashSaleState extends State<HomeFlashSale> {
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 2),
                   width: getProportionateScreenWidth(150),
                 ),
-                const ProductTile(
-                  image: 'assets/product_1.png',
-                  price: 50000,
-                  discount: 75,
-                ),
-                const ProductTile(
-                  image: 'assets/product_2.jpg',
-                  price: 100000,
-                  discount: 50,
-                ),
-                const ProductTile(
-                  image: 'assets/product_3.jpg',
-                  price: 80000,
-                  discount: 40,
-                ),
+                isLoading ? skeleton() : product(),
               ],
             ),
           )
         ],
       ),
+    );
+  }
+
+  Widget product() {
+    return Wrap(
+      children: const [
+        ProductTile(
+          image: 'assets/product_1.png',
+          price: 50000,
+          discount: 75,
+        ),
+        ProductTile(
+          image: 'assets/product_2.jpg',
+          price: 100000,
+          discount: 50,
+        ),
+        ProductTile(
+          image: 'assets/product_3.jpg',
+          price: 80000,
+          discount: 40,
+        )
+      ],
+    );
+  }
+
+  Widget skeleton() {
+    return Wrap(
+      children: const [
+        SkeletonProductTile(),
+        SkeletonProductTile(),
+        SkeletonProductTile(),
+      ],
     );
   }
 }

@@ -24,6 +24,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   late CurvedAnimationController<Color> _animationInput;
   late CurvedAnimationController<Color> _animationIcon;
   bool status = true;
+  bool popUp = false;
 
   final Color _appbarBackgroundColorBegin = kPrimaryColor.withOpacity(1);
   final Color _appbarBackgroundColorEnd = kWhiteColor;
@@ -38,6 +39,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     _initAnimation();
     super.initState();
     _initScroll();
+    Future.delayed(const Duration(seconds: 6), () {
+      setState(() {
+        popUp = true;
+      });
+    });
   }
 
   _initAnimation() {
@@ -225,12 +231,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 const HomeCategory(),
               ],
             ),
-            FloatBubble(
-                show: status,
-                child: Image.asset(
-                  'assets/floating.gif',
-                  height: getProportionateScreenHeight(120),
-                )),
+            (popUp == true)
+                ? FloatBubble(
+                    show: status,
+                    child: Image.asset(
+                      'assets/floating.gif',
+                      height: getProportionateScreenHeight(120),
+                    ))
+                : const SizedBox(),
           ],
         ),
       ),
