@@ -1,5 +1,7 @@
 # Tokopedia Clone HomeScreen UI
 
+UI Clone 16 Juni 2022
+
 Screnshoot :
 <p float="left">
   <img src="https://user-images.githubusercontent.com/60414357/173990944-0708253c-599f-40af-9e26-71a83060d913.png" height="300em" />
