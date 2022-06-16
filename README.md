@@ -1,4 +1,4 @@
-# tokped
+# Tokopedia Clone HomeScreen UI
 
 A new Flutter project.
 
