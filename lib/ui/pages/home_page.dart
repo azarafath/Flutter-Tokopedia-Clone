@@ -1,3 +1,4 @@
+import 'package:float_bubble/float_bubble.dart';
 import 'package:flutter/material.dart';
 import 'package:tokped/size_config.dart';
 import 'package:tokped/theme.dart';
@@ -211,15 +212,26 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           });
           return true;
         },
-        child: ListView(
-          controller: _scrollViewController,
+        child: Stack(
           children: [
-            HomeHeader(),
-            const HomeMenu(),
-            const HomeFlashSale(),
-            const SpesialTokopedia(),
-            const HomePromo(),
-            const HomeCategory(),
+            ListView(
+              controller: _scrollViewController,
+              children: [
+                HomeHeader(),
+                const HomeMenu(),
+                const HomeFlashSale(),
+                const SpesialTokopedia(),
+                const HomePromo(),
+                const HomeCategory(),
+              ],
+            ),
+            FloatBubble(
+              show: status,
+              child: Image.network(
+                'https://ecs7.tokopedia.net/img/blog/promo/2021/02/FLOATING-ICON-HARI-IBU.gif',
+                height: getProportionateScreenHeight(120),
+              ),
+            ),
           ],
         ),
       ),

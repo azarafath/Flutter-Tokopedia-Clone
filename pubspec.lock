@@ -92,6 +92,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "6.1.2"
+  float_bubble:
+    dependency: "direct main"
+    description:
+      name: float_bubble
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.2"
   flutter:
     dependency: "direct main"
     description: flutter
