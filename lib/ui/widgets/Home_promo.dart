@@ -3,8 +3,28 @@ import 'package:tokped/size_config.dart';
 import 'package:tokped/theme.dart';
 import 'package:tokped/ui/widgets/product_tile_widget.dart';
 
-class HomePromo extends StatelessWidget {
+import 'skeleton_product_tile_widget.dart';
+
+class HomePromo extends StatefulWidget {
   const HomePromo({Key? key}) : super(key: key);
+
+  @override
+  State<HomePromo> createState() => _HomePromoState();
+}
+
+class _HomePromoState extends State<HomePromo> {
+  bool isLoading = true;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Future.delayed(const Duration(seconds: 5), () {
+      setState(() {
+        isLoading = false;
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,24 +70,42 @@ class HomePromo extends StatelessWidget {
                 margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 2),
                 width: getProportionateScreenWidth(110),
               ),
-              const ProductTile(
-                image: 'assets/product_4.jpg',
-                price: 50000,
-                discount: 75,
-              ),
-              const ProductTile(
-                image: 'assets/product_3.jpg',
-                price: 100000,
-                discount: 50,
-              ),
-              const ProductTile(
-                image: 'assets/product_2.jpg',
-                price: 80000,
-                discount: 40,
-              ),
+              isLoading ? skeleton() : loaded(),
             ],
           ),
         )
+      ],
+    );
+  }
+
+  Widget loaded() {
+    return Wrap(
+      children: const [
+        ProductTile(
+          image: 'assets/product_4.jpg',
+          price: 50000,
+          discount: 75,
+        ),
+        ProductTile(
+          image: 'assets/product_3.jpg',
+          price: 100000,
+          discount: 50,
+        ),
+        ProductTile(
+          image: 'assets/product_2.jpg',
+          price: 80000,
+          discount: 40,
+        ),
+      ],
+    );
+  }
+
+  Widget skeleton() {
+    return Wrap(
+      children: const [
+        SkeletonProductTile(),
+        SkeletonProductTile(),
+        SkeletonProductTile(),
       ],
     );
   }

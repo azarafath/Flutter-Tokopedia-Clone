@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:tokped/providers/carousel_provider.dart';
+import 'package:tokped/providers/product_provider.dart';
 import 'package:tokped/ui/pages/home_page.dart';
 import 'package:tokped/ui/pages/splash_screen_page.dart';
 import 'providers/balance_provider.dart';
@@ -16,6 +18,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => BalanceProvider()),
+        ChangeNotifierProvider(create: (context) => CarouselProvider()),
+        ChangeNotifierProvider(create: (context) => ProductProvider()),
       ],
       child: MaterialApp(debugShowCheckedModeBanner: false, routes: {
         '/': (context) => const SplashScreen(),

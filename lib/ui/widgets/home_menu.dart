@@ -1,32 +1,19 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:tokped/providers/carousel_provider.dart';
 import 'package:tokped/size_config.dart';
 import 'package:tokped/theme.dart';
 import 'package:tokped/ui/widgets/icon_menu_widget.dart';
 
-class HomeMenu extends StatefulWidget {
+class HomeMenu extends StatelessWidget {
   const HomeMenu({Key? key}) : super(key: key);
 
   @override
-  State<HomeMenu> createState() => _HomeMenuState();
-}
-
-class _HomeMenuState extends State<HomeMenu> {
-  bool isLoading = true;
-  @override
-  void initState() {
-    super.initState();
-    Future.delayed(const Duration(seconds: 3), () {
-      setState(() {
-        isLoading = false;
-      });
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
-    Widget buildCarousel() {
+    CarouselProvider carouselProvider = Provider.of<CarouselProvider>(context);
+    Widget buildCarousel(snapshot) {
       return CarouselSlider(
         options: CarouselOptions(viewportFraction: 0.95, aspectRatio: 50 / 16),
         items: [
@@ -146,7 +133,16 @@ class _HomeMenuState extends State<HomeMenu> {
         SizedBox(
           height: getProportionateScreenHeight(15),
         ),
-        isLoading ? skeletonCarousel() : buildCarousel(),
+        FutureBuilder(
+          future: carouselProvider.getCarousel(),
+          builder: (BuildContext context, AsyncSnapshot snapshot) {
+            if (snapshot.hasData) {
+              return buildCarousel(snapshot);
+            } else {
+              return skeletonCarousel();
+            }
+          },
+        ),
         SizedBox(
           height: getProportionateScreenHeight(15),
         ),

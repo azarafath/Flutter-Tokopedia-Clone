@@ -2,12 +2,12 @@ import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:tokped/models/balance.dart';
+import 'package:tokped/models/carousel.dart';
 
-class BalanceProvider extends ChangeNotifier {
-  Future<List<Balance>?> getBalance() async {
+class CarouselProvider extends ChangeNotifier {
+  Future<List<Carousel>?> getCarousel() async {
     Uri url = Uri.parse(
-        'https://b30e5196-6087-4a2e-bc0b-ee4356c5b6a3.mock.pstmn.io/balance');
+        'https://b30e5196-6087-4a2e-bc0b-ee4356c5b6a3.mock.pstmn.io/carousel');
     var result = await http.get(url);
 
     print(result.statusCode);
@@ -15,8 +15,8 @@ class BalanceProvider extends ChangeNotifier {
 
     try {
       if (result.statusCode == 200) {
-        List<Balance> _balance = balanceFromJson(result.body);
-        return _balance;
+        List<Carousel> _carousel = carouselFromJson(result.body);
+        return _carousel;
       }
     } catch (e) {
       log(e.toString());

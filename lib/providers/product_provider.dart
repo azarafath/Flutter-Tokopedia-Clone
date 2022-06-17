@@ -2,12 +2,12 @@ import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:tokped/models/balance.dart';
+import 'package:tokped/models/product.dart';
 
-class BalanceProvider extends ChangeNotifier {
-  Future<List<Balance>?> getBalance() async {
+class ProductProvider extends ChangeNotifier {
+  Future<List<Product>?> getProducts() async {
     Uri url = Uri.parse(
-        'https://b30e5196-6087-4a2e-bc0b-ee4356c5b6a3.mock.pstmn.io/balance');
+        'https://b30e5196-6087-4a2e-bc0b-ee4356c5b6a3.mock.pstmn.io/products');
     var result = await http.get(url);
 
     print(result.statusCode);
@@ -15,8 +15,8 @@ class BalanceProvider extends ChangeNotifier {
 
     try {
       if (result.statusCode == 200) {
-        List<Balance> _balance = balanceFromJson(result.body);
-        return _balance;
+        List<Product> _products = productFromJson(result.body);
+        return _products;
       }
     } catch (e) {
       log(e.toString());

@@ -1,6 +1,7 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:tokped/providers/product_provider.dart';
 import 'package:tokped/size_config.dart';
 import 'package:tokped/theme.dart';
 import 'package:tokped/ui/widgets/product_tile_widget.dart';
@@ -34,6 +35,8 @@ class _HomeFlashSaleState extends State<HomeFlashSale> {
 
   @override
   Widget build(BuildContext context) {
+    ProductProvider productProvider = Provider.of<ProductProvider>(context);
+
     return Container(
       margin: EdgeInsets.only(top: getProportionateScreenHeight(30)),
       child: Column(
