@@ -1,8 +1,7 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_timer_countdown/flutter_timer_countdown.dart';
 import 'package:tokped/models/product.dart';
-import 'package:tokped/providers/product_provider.dart';
+import 'package:tokped/services/product_service.dart';
 import 'package:tokped/size_config.dart';
 import 'package:tokped/theme.dart';
 import 'package:tokped/ui/widgets/product_tile_widget.dart';
@@ -16,22 +15,20 @@ class HomeFlashSale extends StatefulWidget {
 }
 
 class _HomeFlashSaleState extends State<HomeFlashSale> {
-  Duration endTimer = const Duration(hours: 12);
-  late Timer timer;
+  late List<Product>? _products = [];
+
   @override
   void initState() {
     super.initState();
-    timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      setState(() {
-        endTimer -= const Duration(seconds: 1);
-      });
-    });
+    _getProducts();
+  }
+
+  _getProducts() async {
+    _products = await ProductService().getProduct();
   }
 
   @override
   Widget build(BuildContext context) {
-    ProductProvider productProvider = Provider.of<ProductProvider>(context);
-
     return Container(
       margin: EdgeInsets.only(top: getProportionateScreenHeight(30)),
       child: Column(
@@ -78,13 +75,15 @@ class _HomeFlashSaleState extends State<HomeFlashSale> {
                               SizedBox(
                                 width: getProportionateScreenWidth(5),
                               ),
-                              Text(
-                                '${endTimer.inHours} : ${endTimer.inMinutes % 60} : ${endTimer.inSeconds % 60}',
-                                style: kPrimaryTextStyle.copyWith(
-                                    fontSize: getProportionateScreenWidth(10),
-                                    color: kWhiteColor,
-                                    fontWeight: kBoldFontWeight),
-                              ),
+                              TimerCountdown(
+                                format:
+                                    CountDownTimerFormat.hoursMinutesSeconds,
+                                endTime: DateTime.now().add(
+                                  const Duration(
+                                    hours: 12,
+                                  ),
+                                ),
+                              )
                             ],
                           ),
                         )),
@@ -123,34 +122,23 @@ class _HomeFlashSaleState extends State<HomeFlashSale> {
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 2),
                   width: getProportionateScreenWidth(150),
                 ),
-                FutureBuilder(
-                  future: productProvider.getProducts(),
-                  builder: (BuildContext context, AsyncSnapshot snapshot) {
-                    if (snapshot.hasData) {
-                      List<Product> products = snapshot.data;
-                      return product(products);
-                    } else {
-                      return skeleton();
-                    }
-                  },
-                )
+                _products == null || _products!.isEmpty
+                    ? skeleton()
+                    : ListView.builder(
+                        itemCount: _products!.length,
+                        itemBuilder: (context, index) {
+                          return ProductTile(
+                            discount: _products![index].discount,
+                            image: _products![index].image,
+                            price: _products![index].price,
+                          );
+                        },
+                      )
               ],
             ),
           )
         ],
       ),
-    );
-  }
-
-  Widget product(product) {
-    return Column(
-      children: product.map<Widget>((product) {
-        return ProductTile(
-          image: product.image,
-          discount: product.discount,
-          price: product.price,
-        );
-      }).toList(),
     );
   }
 

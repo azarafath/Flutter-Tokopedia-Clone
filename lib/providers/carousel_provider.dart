@@ -8,7 +8,7 @@ import 'package:tokped/models/carousel.dart';
 class CarouselProvider extends ChangeNotifier {
   Future<List<Carousel>?> getCarousel() async {
     Uri url = Uri.parse(
-        'https://8a2ede6e-4628-4111-9f9f-ef1158748fa7.mock.pstmn.io/carousel');
+        'https://4c1fa8f1-6852-44c7-a30d-4e6bb94c5649.mock.pstmn.io/carousel');
     var result = await http.get(url);
 
     print(result.statusCode);

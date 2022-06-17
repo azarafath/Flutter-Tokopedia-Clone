@@ -34,6 +34,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_launcher_icons: ^0.9.3
+  flutter_timer_countdown: ^1.0.3
   google_fonts: ^3.0.1
   http: ^0.13.4
   intl: ^0.17.0

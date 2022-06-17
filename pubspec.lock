@@ -137,6 +137,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_timer_countdown:
+    dependency: "direct main"
+    description:
+      name: flutter_timer_countdown
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.3"
   google_fonts:
     dependency: "direct main"
     description:
