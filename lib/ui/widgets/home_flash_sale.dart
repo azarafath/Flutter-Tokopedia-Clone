@@ -1,34 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_timer_countdown/flutter_timer_countdown.dart';
+import 'package:flutter_countdown_timer/index.dart';
+import 'package:provider/provider.dart';
 import 'package:tokped/models/product.dart';
-import 'package:tokped/services/product_service.dart';
+import 'package:tokped/providers/product_provider.dart';
 import 'package:tokped/size_config.dart';
 import 'package:tokped/theme.dart';
 import 'package:tokped/ui/widgets/product_tile_widget.dart';
 import 'package:tokped/ui/widgets/skeleton_product_tile_widget.dart';
 
-class HomeFlashSale extends StatefulWidget {
+class HomeFlashSale extends StatelessWidget {
   const HomeFlashSale({Key? key}) : super(key: key);
 
   @override
-  State<HomeFlashSale> createState() => _HomeFlashSaleState();
-}
-
-class _HomeFlashSaleState extends State<HomeFlashSale> {
-  late List<Product>? _products = [];
-
-  @override
-  void initState() {
-    super.initState();
-    _getProducts();
-  }
-
-  _getProducts() async {
-    _products = await ProductService().getProduct();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    ProductProvider productProvider = Provider.of<ProductProvider>(context);
     return Container(
       margin: EdgeInsets.only(top: getProportionateScreenHeight(30)),
       child: Column(
@@ -75,15 +60,23 @@ class _HomeFlashSaleState extends State<HomeFlashSale> {
                               SizedBox(
                                 width: getProportionateScreenWidth(5),
                               ),
-                              TimerCountdown(
-                                format:
-                                    CountDownTimerFormat.hoursMinutesSeconds,
-                                endTime: DateTime.now().add(
-                                  const Duration(
-                                    hours: 12,
-                                  ),
-                                ),
-                              )
+                              CountdownTimer(
+                                endTime: DateTime.now().millisecondsSinceEpoch +
+                                    const Duration(hours: 12).inMilliseconds,
+                                widgetBuilder: (_, CurrentRemainingTime? time) {
+                                  if (time == null) {
+                                    return const Text('Time over');
+                                  }
+                                  return Text(
+                                    '${time.hours} : ${time.min} : ${time.sec} ',
+                                    style: kPrimaryTextStyle.copyWith(
+                                      fontSize: getProportionateScreenWidth(10),
+                                      color: kWhiteColor,
+                                      fontWeight: kBoldFontWeight,
+                                    ),
+                                  );
+                                },
+                              ),
                             ],
                           ),
                         )),
@@ -122,24 +115,34 @@ class _HomeFlashSaleState extends State<HomeFlashSale> {
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 2),
                   width: getProportionateScreenWidth(150),
                 ),
-                _products == null || _products!.isEmpty
-                    ? skeleton()
-                    : ListView.builder(
-                        itemCount: _products!.length,
-                        itemBuilder: (context, index) {
-                          return ProductTile(
-                            discount: _products![index].discount,
-                            image: _products![index].image,
-                            price: _products![index].price,
-                          );
-                        },
-                      )
+                FutureBuilder(
+                    future: productProvider.getProducts(),
+                    builder: (BuildContext context, AsyncSnapshot snapshot) {
+                      if (snapshot.hasData) {
+                        List<Product> products = snapshot.data;
+                        return product(products);
+                      } else {
+                        return skeleton();
+                      }
+                    })
               ],
             ),
           )
         ],
       ),
     );
+  }
+
+  Widget product(products) {
+    return products
+        .map(
+          (e) => ProductTile(
+            image: e.image,
+            price: e.price,
+            discount: e.discount,
+          ),
+        )
+        .toList();
   }
 
   Widget skeleton() {
