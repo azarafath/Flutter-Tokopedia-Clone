@@ -134,15 +134,17 @@ class HomeFlashSale extends StatelessWidget {
   }
 
   Widget product(products) {
-    return products
-        .map(
-          (e) => ProductTile(
-            image: e.image,
-            price: e.price,
-            discount: e.discount,
-          ),
-        )
-        .toList();
+    return Wrap(
+      children: products
+          .map<Widget>(
+            (e) => ProductTile(
+              image: e.image,
+              price: e.price,
+              discount: e.discount,
+            ),
+          )
+          .toList(),
+    );
   }
 
   Widget skeleton() {
