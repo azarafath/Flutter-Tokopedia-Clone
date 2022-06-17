@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -15,8 +16,10 @@ class ProductProvider extends ChangeNotifier {
 
     try {
       if (result.statusCode == 200) {
-        List<Product> _products = productFromJson(result.body);
-        return _products;
+        List data = jsonDecode(result.body);
+        List<Product> _product =
+            data.map((item) => Product.fromJson(item)).toList();
+        return _product;
       }
     } catch (e) {
       log(e.toString());
