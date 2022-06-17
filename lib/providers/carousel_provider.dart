@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,9 @@ class CarouselProvider extends ChangeNotifier {
 
     try {
       if (result.statusCode == 200) {
-        List<Carousel> _carousel = carouselFromJson(result.body);
+        List data = jsonDecode(result.body);
+        List<Carousel> _carousel =
+            data.map((item) => Carousel.fromJson(item)).toList();
         return _carousel;
       }
     } catch (e) {

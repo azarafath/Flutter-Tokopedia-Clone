@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:tokped/models/carousel.dart';
 import 'package:tokped/providers/carousel_provider.dart';
 import 'package:tokped/size_config.dart';
 import 'package:tokped/theme.dart';
@@ -13,13 +14,10 @@ class HomeMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     CarouselProvider carouselProvider = Provider.of<CarouselProvider>(context);
-    Widget buildCarousel(snapshot) {
+    Widget buildCarousel(carousel) {
       return CarouselSlider(
         options: CarouselOptions(viewportFraction: 0.95, aspectRatio: 50 / 16),
-        items: [
-          'assets/carousel_1.jpg',
-          'assets/carousel_2.jpg',
-        ].map((i) {
+        items: carousel.map<Widget>((i) {
           return Builder(
             builder: (BuildContext context) {
               return Container(
@@ -27,7 +25,7 @@ class HomeMenu extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: Image.asset(
-                    i,
+                    i.image.toString(),
                     fit: BoxFit.contain,
                   ),
                 ),
@@ -137,7 +135,8 @@ class HomeMenu extends StatelessWidget {
           future: carouselProvider.getCarousel(),
           builder: (BuildContext context, AsyncSnapshot snapshot) {
             if (snapshot.hasData) {
-              return buildCarousel(snapshot);
+              List<Carousel> carousel = snapshot.data;
+              return buildCarousel(carousel);
             } else {
               return skeletonCarousel();
             }
