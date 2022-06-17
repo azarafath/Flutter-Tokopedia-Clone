@@ -7,7 +7,7 @@ import 'package:tokped/models/balance.dart';
 class BalanceProvider extends ChangeNotifier {
   Future<List<Balance>?> getBalance() async {
     Uri url = Uri.parse(
-        'https://b30e5196-6087-4a2e-bc0b-ee4356c5b6a3.mock.pstmn.io/balance');
+        'https://8a2ede6e-4628-4111-9f9f-ef1158748fa7.mock.pstmn.io/balance');
     var result = await http.get(url);
 
     print(result.statusCode);

@@ -127,7 +127,6 @@ class _HomeFlashSaleState extends State<HomeFlashSale> {
                   future: productProvider.getProducts(),
                   builder: (BuildContext context, AsyncSnapshot snapshot) {
                     if (snapshot.hasData) {
-                      print('DATA MASOK WOY');
                       List<Product> products = snapshot.data;
                       return product(products);
                     } else {
