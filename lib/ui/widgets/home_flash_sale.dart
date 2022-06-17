@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:tokped/models/product.dart';
 import 'package:tokped/providers/product_provider.dart';
 import 'package:tokped/size_config.dart';
 import 'package:tokped/theme.dart';
@@ -15,7 +16,6 @@ class HomeFlashSale extends StatefulWidget {
 }
 
 class _HomeFlashSaleState extends State<HomeFlashSale> {
-  bool isLoading = true;
   Duration endTimer = const Duration(hours: 12);
   late Timer timer;
   @override
@@ -24,11 +24,6 @@ class _HomeFlashSaleState extends State<HomeFlashSale> {
     timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
         endTimer -= const Duration(seconds: 1);
-      });
-    });
-    Future.delayed(const Duration(seconds: 5), () {
-      setState(() {
-        isLoading = false;
       });
     });
   }
@@ -128,7 +123,18 @@ class _HomeFlashSaleState extends State<HomeFlashSale> {
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 2),
                   width: getProportionateScreenWidth(150),
                 ),
-                isLoading ? skeleton() : product(),
+                FutureBuilder(
+                  future: productProvider.getProducts(),
+                  builder: (BuildContext context, AsyncSnapshot snapshot) {
+                    if (snapshot.hasData) {
+                      print('DATA MASOK WOY');
+                      List<Product> products = snapshot.data;
+                      return product(products);
+                    } else {
+                      return skeleton();
+                    }
+                  },
+                )
               ],
             ),
           )
@@ -137,25 +143,15 @@ class _HomeFlashSaleState extends State<HomeFlashSale> {
     );
   }
 
-  Widget product() {
-    return Wrap(
-      children: const [
-        ProductTile(
-          image: 'assets/product_1.png',
-          price: 50000,
-          discount: 75,
-        ),
-        ProductTile(
-          image: 'assets/product_2.jpg',
-          price: 100000,
-          discount: 50,
-        ),
-        ProductTile(
-          image: 'assets/product_3.jpg',
-          price: 80000,
-          discount: 40,
-        )
-      ],
+  Widget product(product) {
+    return Column(
+      children: product.map<Widget>((product) {
+        return ProductTile(
+          image: product.image,
+          discount: product.discount,
+          price: product.price,
+        );
+      }).toList(),
     );
   }
 
