@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:tokped/models/balance.dart';
+import 'package:tokped/providers/balance_provider.dart';
 import 'package:tokped/size_config.dart';
 import 'package:tokped/theme.dart';
 import 'package:tokped/ui/widgets/custom_clip_class.dart';
+import 'package:intl/intl.dart';
 
 // ignore: use_key_in_widget_constructors
 class HomeHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    BalanceProvider balanceProvider = Provider.of<BalanceProvider>(context);
     return Stack(
       children: [
         ClipPath(
@@ -58,31 +63,40 @@ class HomeHeader extends StatelessWidget {
           ),
         ),
         Container(
-          margin: EdgeInsets.symmetric(
-              horizontal: getProportionateScreenWidth(16),
-              vertical: getProportionateScreenHeight(30)),
-          height: getProportionateScreenHeight(48),
-          decoration: BoxDecoration(
-            color: kWhiteColor,
-            borderRadius: BorderRadius.circular(
-              getProportionateScreenWidth(7),
-            ),
-            // shadow bottomm only
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.2),
-                offset: const Offset(0, 1),
-                blurRadius: 5,
+            margin: EdgeInsets.symmetric(
+                horizontal: getProportionateScreenWidth(16),
+                vertical: getProportionateScreenHeight(30)),
+            height: getProportionateScreenHeight(48),
+            decoration: BoxDecoration(
+              color: kWhiteColor,
+              borderRadius: BorderRadius.circular(
+                getProportionateScreenWidth(7),
               ),
-            ],
-          ),
-          child: skeleton(),
-        )
+              // shadow bottomm only
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.2),
+                  offset: const Offset(0, 1),
+                  blurRadius: 5,
+                ),
+              ],
+            ),
+            child: FutureBuilder<List<Balance>?>(
+              future: balanceProvider.getBalance(),
+              builder: (context, snapshoot) {
+                if (snapshoot.hasData) {
+                  List<Balance> data = snapshoot.data!;
+                  return loaded(data[0]);
+                } else {
+                  return skeleton();
+                }
+              },
+            ))
       ],
     );
   }
 
-  Widget loaded() {
+  Widget loaded(Balance balance) {
     return Row(
       children: [
         Expanded(
@@ -100,14 +114,14 @@ class HomeHeader extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Rp.1.000.000',
+                    CurrencyFormat.convertToIdr(balance.gopay, 0),
                     style: kPrimaryTextStyle.copyWith(
                       fontWeight: FontWeight.w600,
                       fontSize: getProportionateScreenWidth(9),
                     ),
                   ),
                   Text(
-                    '2000 Coins',
+                    '${balance.coins} Coins',
                     style: kPrimaryTextStyle.copyWith(
                         fontWeight: kLightFontWeight,
                         fontSize: getProportionateScreenWidth(8)),
@@ -137,7 +151,7 @@ class HomeHeader extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    '30 Kupon Baru',
+                    '${balance.voucher} Kupon Baru',
                     style: kPrimaryTextStyle.copyWith(
                         fontWeight: kNormalFontWeight,
                         fontSize: getProportionateScreenWidth(8)),
@@ -270,5 +284,16 @@ class HomeHeader extends StatelessWidget {
         )
       ],
     );
+  }
+}
+
+class CurrencyFormat {
+  static String convertToIdr(dynamic number, int decimalDigit) {
+    NumberFormat currencyFormatter = NumberFormat.currency(
+      locale: 'id',
+      symbol: 'Rp ',
+      decimalDigits: decimalDigit,
+    );
+    return currencyFormatter.format(number);
   }
 }
