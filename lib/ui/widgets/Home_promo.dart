@@ -1,33 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:tokped/models/product.dart';
+import 'package:tokped/providers/product_provider.dart';
 import 'package:tokped/size_config.dart';
 import 'package:tokped/theme.dart';
 import 'package:tokped/ui/widgets/product_tile_widget.dart';
+import 'package:tokped/ui/widgets/skeleton_product_tile_widget.dart';
 
-import 'skeleton_product_tile_widget.dart';
-
-class HomePromo extends StatefulWidget {
+class HomePromo extends StatelessWidget {
   const HomePromo({Key? key}) : super(key: key);
 
   @override
-  State<HomePromo> createState() => _HomePromoState();
-}
-
-class _HomePromoState extends State<HomePromo> {
-  bool isLoading = true;
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    Future.delayed(const Duration(seconds: 5), () {
-      setState(() {
-        isLoading = false;
-      });
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
+    ProductProvider productProvider = Provider.of<ProductProvider>(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -70,7 +55,17 @@ class _HomePromoState extends State<HomePromo> {
                 margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 2),
                 width: getProportionateScreenWidth(110),
               ),
-              isLoading ? skeleton() : loaded(),
+              FutureBuilder<List<Product>?>(
+                future: productProvider.getProducts(),
+                builder: (BuildContext context, AsyncSnapshot snapshot) {
+                  if (snapshot.hasData) {
+                    List<Product> products = snapshot.data;
+                    return product(products);
+                  } else {
+                    return skeleton();
+                  }
+                },
+              ),
             ],
           ),
         )
@@ -78,25 +73,17 @@ class _HomePromoState extends State<HomePromo> {
     );
   }
 
-  Widget loaded() {
+  Widget product(products) {
     return Wrap(
-      children: const [
-        ProductTile(
-          image: 'assets/product_4.jpg',
-          price: 50000,
-          discount: 75,
-        ),
-        ProductTile(
-          image: 'assets/product_3.jpg',
-          price: 100000,
-          discount: 50,
-        ),
-        ProductTile(
-          image: 'assets/product_2.jpg',
-          price: 80000,
-          discount: 40,
-        ),
-      ],
+      children: products
+          .map<Widget>(
+            (e) => ProductTile(
+              image: e.image,
+              price: e.price,
+              discount: e.discount,
+            ),
+          )
+          .toList(),
     );
   }
 
