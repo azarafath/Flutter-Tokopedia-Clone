@@ -10,6 +10,7 @@ import 'package:tokped/ui/widgets/home_flash_sale.dart';
 import 'package:tokped/ui/widgets/home_header_widget.dart';
 import 'package:tokped/ui/widgets/home_menu.dart';
 import 'package:tokped/ui/widgets/spesial_tokopedia.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:curved_animation_controller/curved_animation_controller.dart';
 
 class HomePage extends StatefulWidget {
@@ -114,6 +115,36 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       _animationInput.progress = progressInput;
       _animationIcon.progress = progressIcon;
     });
+  }
+
+  // PULL TO REFRESH
+  List<Widget> items = [
+    HomeHeader(),
+    const HomeMenu(),
+    const HomeFlashSale(),
+    const SpesialTokopedia(),
+    const HomePromo(),
+    const HomeCategory(),
+  ];
+  final RefreshController _refreshController =
+      RefreshController(initialRefresh: false);
+
+  void _onRefresh() async {
+    // monitor network fetch
+    await Future.delayed(const Duration(milliseconds: 1000));
+    // if failed,use refreshFailed()
+    _refreshController.refreshCompleted();
+  }
+
+  void _onLoading() async {
+    // monitor network fetch
+    await Future.delayed(const Duration(milliseconds: 1000));
+    // if failed,use loadFailed(),if no data return,use LoadNodata(
+    items.add((Text('TEST')));
+    if (mounted) {
+      setState(() {});
+    }
+    _refreshController.loadComplete();
   }
 
   @override
@@ -223,16 +254,16 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           },
           child: Stack(
             children: [
-              ListView(
-                controller: _scrollViewController,
-                children: [
-                  HomeHeader(),
-                  const HomeMenu(),
-                  const HomeFlashSale(),
-                  const SpesialTokopedia(),
-                  const HomePromo(),
-                  const HomeCategory(),
-                ],
+              SmartRefresher(
+                enablePullUp: true,
+                controller: _refreshController,
+                onRefresh: _onRefresh,
+                onLoading: _onLoading,
+                child: ListView.builder(
+                  controller: _scrollViewController,
+                  itemBuilder: (c, i) => items[i],
+                  itemCount: items.length,
+                ),
               ),
               (popUp == true)
                   ? FloatBubble(
