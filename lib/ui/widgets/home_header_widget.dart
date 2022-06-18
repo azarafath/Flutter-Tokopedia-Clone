@@ -18,7 +18,7 @@ class HomeHeader extends StatelessWidget {
         ClipPath(
           clipper: ClipPathClass(),
           child: Container(
-            height: getProportionateScreenHeight(110),
+            height: getProportionateScreenHeight(105),
             color: kPrimaryColor,
           ),
         ),
@@ -59,6 +59,14 @@ class HomeHeader extends StatelessWidget {
                   ),
                 ),
               ),
+              Container(
+                margin: EdgeInsets.only(left: getProportionateScreenWidth(4)),
+                child: Image.asset(
+                  'assets/icon_arrow_down.png',
+                  color: kWhiteColor,
+                  width: getProportionateScreenWidth(8),
+                ),
+              )
             ],
           ),
         ),
@@ -66,7 +74,9 @@ class HomeHeader extends StatelessWidget {
             margin: EdgeInsets.symmetric(
                 horizontal: getProportionateScreenWidth(16),
                 vertical: getProportionateScreenHeight(30)),
-            height: getProportionateScreenHeight(48),
+            padding: EdgeInsets.symmetric(
+              vertical: getProportionateScreenHeight(11),
+            ),
             decoration: BoxDecoration(
               color: kWhiteColor,
               borderRadius: BorderRadius.circular(
@@ -75,7 +85,7 @@ class HomeHeader extends StatelessWidget {
               // shadow bottomm only
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.2),
+                  color: Colors.grey.withOpacity(0.2),
                   offset: const Offset(0, 1),
                   blurRadius: 5,
                 ),
