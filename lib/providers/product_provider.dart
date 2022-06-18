@@ -8,7 +8,7 @@ import 'package:tokped/models/product.dart';
 class ProductProvider extends ChangeNotifier {
   Future<List<Product>?> getProducts() async {
     Uri url = Uri.parse(
-        'https://6b7888dd-18ab-498f-b06d-b404748a04d3.mock.pstmn.io/products');
+        'https://04183302-a6bd-4e68-a7b5-40a682daedb0.mock.pstmn.io/products');
 
     try {
       var result = await http.get(url);
