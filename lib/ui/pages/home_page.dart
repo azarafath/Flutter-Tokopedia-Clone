@@ -1,5 +1,6 @@
 import 'package:float_bubble/float_bubble.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:tokped/size_config.dart';
 import 'package:tokped/theme.dart';
 import 'package:tokped/ui/widgets/Home_promo.dart';
@@ -203,43 +204,46 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       );
     }
 
-    return Scaffold(
-      appBar: appBar(),
-      bottomNavigationBar: const CustomNavBar(),
-      body: NotificationListener(
-        onNotification: (notificationInfo) {
-          setState(() {
-            if (notificationInfo is ScrollStartNotification) {
-              status = false;
-            }
-            if (notificationInfo is ScrollEndNotification) {
-              status = true;
-            }
-          });
-          return true;
-        },
-        child: Stack(
-          children: [
-            ListView(
-              controller: _scrollViewController,
-              children: [
-                HomeHeader(),
-                const HomeMenu(),
-                const HomeFlashSale(),
-                const SpesialTokopedia(),
-                const HomePromo(),
-                const HomeCategory(),
-              ],
-            ),
-            (popUp == true)
-                ? FloatBubble(
-                    show: status,
-                    child: Image.asset(
-                      'assets/floating.gif',
-                      height: getProportionateScreenHeight(120),
-                    ))
-                : const SizedBox(),
-          ],
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: const SystemUiOverlayStyle(statusBarColor: Colors.transparent),
+      child: Scaffold(
+        appBar: appBar(),
+        bottomNavigationBar: const CustomNavBar(),
+        body: NotificationListener(
+          onNotification: (notificationInfo) {
+            setState(() {
+              if (notificationInfo is ScrollStartNotification) {
+                status = false;
+              }
+              if (notificationInfo is ScrollEndNotification) {
+                status = true;
+              }
+            });
+            return true;
+          },
+          child: Stack(
+            children: [
+              ListView(
+                controller: _scrollViewController,
+                children: [
+                  HomeHeader(),
+                  const HomeMenu(),
+                  const HomeFlashSale(),
+                  const SpesialTokopedia(),
+                  const HomePromo(),
+                  const HomeCategory(),
+                ],
+              ),
+              (popUp == true)
+                  ? FloatBubble(
+                      show: status,
+                      child: Image.asset(
+                        'assets/floating.gif',
+                        height: getProportionateScreenHeight(120),
+                      ))
+                  : const SizedBox(),
+            ],
+          ),
         ),
       ),
     );
