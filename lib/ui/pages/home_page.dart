@@ -1,6 +1,7 @@
 import 'package:float_bubble/float_bubble.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:tokped/models/product.dart';
 import 'package:tokped/size_config.dart';
 import 'package:tokped/theme.dart';
 import 'package:tokped/ui/widgets/Home_promo.dart';
@@ -9,6 +10,8 @@ import 'package:tokped/ui/widgets/home_category.dart';
 import 'package:tokped/ui/widgets/home_flash_sale.dart';
 import 'package:tokped/ui/widgets/home_header_widget.dart';
 import 'package:tokped/ui/widgets/home_menu.dart';
+import 'package:tokped/ui/widgets/product_list.dart';
+import 'package:tokped/ui/widgets/product_widget.dart';
 import 'package:tokped/ui/widgets/spesial_tokopedia.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:curved_animation_controller/curved_animation_controller.dart';
@@ -125,6 +128,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     const SpesialTokopedia(),
     const HomePromo(),
     const HomeCategory(),
+    const ProductWidget(),
+    const ProductList(),
   ];
   final RefreshController _refreshController =
       RefreshController(initialRefresh: false);
@@ -132,6 +137,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   void _onRefresh() async {
     // monitor network fetch
     await Future.delayed(const Duration(milliseconds: 1000));
+    setState(() {
+      Navigator.pushReplacementNamed(context, '/home');
+    });
     // if failed,use refreshFailed()
     _refreshController.refreshCompleted();
   }
@@ -140,7 +148,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     // monitor network fetch
     await Future.delayed(const Duration(milliseconds: 1000));
     // if failed,use loadFailed(),if no data return,use LoadNodata(
-    items.add((Text('TEST')));
+    items.add(const ProductList());
     if (mounted) {
       setState(() {});
     }
@@ -236,7 +244,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     }
 
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: const SystemUiOverlayStyle(statusBarColor: Colors.transparent),
+      value: const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+      ),
       child: Scaffold(
         appBar: appBar(),
         bottomNavigationBar: const CustomNavBar(),

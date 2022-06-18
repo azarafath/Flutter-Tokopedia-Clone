@@ -50,21 +50,21 @@ class Product {
 //   },
 //   {
 //     "id": 2,
-//     "name" : "Sticker Anti Air"
+//     "name" : "Sticker Anti Air",
 //     "image": "assets/product_2.jpg",
 //     "price": 500000,
 //     "discount": 50
 //   },
 //   {
 //     "id": 3,
-//     "name" : "Qualcomm Charge"
+//     "name" : "Qualcomm Charge",
 //     "image": "assets/product_3.jpg",
 //     "price": 80000,
 //     "discount": 40
 //   },
 //   {
 //     "id": 4,
-//     "name" : "MaduKu Asli"
+//     "name" : "MaduKu Asli",
 //     "image": "assets/product_4.jpg",
 //     "price": 100000,
 //     "discount": 50
