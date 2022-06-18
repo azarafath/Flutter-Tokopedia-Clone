@@ -18,7 +18,7 @@ class HomeHeader extends StatelessWidget {
         ClipPath(
           clipper: ClipPathClass(),
           child: Container(
-            height: getProportionateScreenHeight(105),
+            height: getProportionateScreenHeight(102),
             color: kPrimaryColor,
           ),
         ),
@@ -71,37 +71,38 @@ class HomeHeader extends StatelessWidget {
           ),
         ),
         Container(
-            margin: EdgeInsets.symmetric(
-                horizontal: getProportionateScreenWidth(16),
-                vertical: getProportionateScreenHeight(30)),
-            padding: EdgeInsets.symmetric(
-              vertical: getProportionateScreenHeight(11),
+          margin: EdgeInsets.symmetric(
+              horizontal: getProportionateScreenWidth(16),
+              vertical: getProportionateScreenHeight(30)),
+          padding: EdgeInsets.symmetric(
+            vertical: getProportionateScreenHeight(11),
+          ),
+          decoration: BoxDecoration(
+            color: kWhiteColor,
+            borderRadius: BorderRadius.circular(
+              getProportionateScreenWidth(7),
             ),
-            decoration: BoxDecoration(
-              color: kWhiteColor,
-              borderRadius: BorderRadius.circular(
-                getProportionateScreenWidth(7),
+            // shadow bottomm only
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.2),
+                offset: const Offset(0, 1),
+                blurRadius: 5,
               ),
-              // shadow bottomm only
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.2),
-                  offset: const Offset(0, 1),
-                  blurRadius: 5,
-                ),
-              ],
-            ),
-            child: FutureBuilder<List<Balance>?>(
-              future: balanceProvider.getBalance(),
-              builder: (context, snapshoot) {
-                if (snapshoot.hasData) {
-                  List<Balance> data = snapshoot.data!;
-                  return loaded(data[0]);
-                } else {
-                  return skeleton();
-                }
-              },
-            ))
+            ],
+          ),
+          child: FutureBuilder<List<Balance>?>(
+            future: balanceProvider.getBalance(),
+            builder: (context, snapshoot) {
+              if (snapshoot.hasData) {
+                List<Balance> data = snapshoot.data!;
+                return loaded(data[0]);
+              } else {
+                return skeleton();
+              }
+            },
+          ),
+        )
       ],
     );
   }
