@@ -131,11 +131,16 @@ class HomeHeader extends StatelessWidget {
                       fontSize: getProportionateScreenWidth(9),
                     ),
                   ),
+                  SizedBox(
+                    height: getProportionateScreenHeight(2),
+                  ),
                   Text(
                     '${balance.coins} Coins',
                     style: kPrimaryTextStyle.copyWith(
-                        fontWeight: kLightFontWeight,
-                        fontSize: getProportionateScreenWidth(8)),
+                      color: Colors.grey,
+                      fontWeight: kLightFontWeight,
+                      fontSize: getProportionateScreenWidth(9),
+                    ),
                   ),
                 ],
               )
@@ -161,11 +166,16 @@ class HomeHeader extends StatelessWidget {
                       fontSize: getProportionateScreenWidth(9),
                     ),
                   ),
+                  SizedBox(
+                    height: getProportionateScreenHeight(2),
+                  ),
                   Text(
                     '${balance.voucher} Kupon Baru',
                     style: kPrimaryTextStyle.copyWith(
-                        fontWeight: kNormalFontWeight,
-                        fontSize: getProportionateScreenWidth(8)),
+                      color: Colors.grey,
+                      fontWeight: kLightFontWeight,
+                      fontSize: getProportionateScreenWidth(9),
+                    ),
                   ),
                 ],
               )
