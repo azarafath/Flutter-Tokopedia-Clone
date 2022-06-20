@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:tokped/size_config.dart';
 import 'package:tokped/theme.dart';
 
@@ -15,6 +16,7 @@ class ProductTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var total = price - price * discount ~/ 100;
     return Container(
       margin: EdgeInsets.symmetric(
         vertical: getProportionateScreenHeight(10),
@@ -70,7 +72,7 @@ class ProductTile extends StatelessWidget {
                   width: getProportionateScreenWidth(5),
                 ),
                 Text(
-                  'Rp $price',
+                  CurrencyFormat.convertToIdr(price, 0),
                   style: kPrimaryTextStyle.copyWith(
                     fontSize: 10,
                     decoration: TextDecoration.lineThrough,
@@ -86,7 +88,7 @@ class ProductTile extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 8.0),
             child: Text(
-              'Rp ${price - price * discount ~/ 100}',
+              CurrencyFormat.convertToIdr(total, 0),
               style: kPrimaryTextStyle.copyWith(
                 fontWeight: kBoldFontWeight,
                 fontSize: 12,
@@ -142,5 +144,16 @@ class ProductTile extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class CurrencyFormat {
+  static String convertToIdr(dynamic number, int decimalDigit) {
+    NumberFormat currencyFormatter = NumberFormat.currency(
+      locale: 'id',
+      symbol: 'Rp ',
+      decimalDigits: decimalDigit,
+    );
+    return currencyFormatter.format(number);
   }
 }
