@@ -12,8 +12,6 @@ class ProductProvider extends ChangeNotifier {
 
     try {
       var result = await http.get(url);
-      print(result.statusCode);
-      print(result.body);
       if (result.statusCode == 200) {
         List data = jsonDecode(result.body);
         List<Product> _product =

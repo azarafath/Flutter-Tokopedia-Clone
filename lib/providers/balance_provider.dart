@@ -11,9 +11,6 @@ class BalanceProvider extends ChangeNotifier {
 
     try {
       var result = await http.get(url);
-
-      print(result.statusCode);
-      print(result.body);
       if (result.statusCode == 200) {
         List<Balance> _balance = balanceFromJson(result.body);
         return _balance;

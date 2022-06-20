@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:tokped/size_config.dart';
 import 'package:tokped/theme.dart';
 
