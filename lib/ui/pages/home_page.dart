@@ -188,6 +188,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   decoration: InputDecoration(
                     prefixIcon: const Icon(
                       Icons.search,
+                      size: 17,
                       color: Colors.grey,
                     ),
                     border: InputBorder.none,
@@ -198,6 +199,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   ),
                   style: kPrimaryTextStyle.copyWith(
                     color: Colors.grey,
+                    fontSize: getProportionateScreenWidth(14),
                   ),
                 ),
               ),
