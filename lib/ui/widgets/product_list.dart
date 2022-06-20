@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:tokped/models/product.dart';
 import 'package:tokped/size_config.dart';
 import 'package:tokped/theme.dart';
@@ -9,6 +10,7 @@ class ProductList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget tileProduct(Product product) {
+      var total = product.price - product.price * product.discount ~/ 100;
       return Expanded(
         child: Container(
           margin: EdgeInsets.only(bottom: getProportionateScreenHeight(8)),
@@ -61,7 +63,7 @@ class ProductList extends StatelessWidget {
                     left: getProportionateScreenHeight(8),
                     top: getProportionateScreenHeight(4)),
                 child: Text(
-                  'Rp ${product.price - product.price * product.discount ~/ 100}',
+                  CurrencyFormat.convertToIdr(total, 0),
                   style: kPrimaryTextStyle.copyWith(
                     fontWeight: kBoldFontWeight,
                     fontSize: 14,
@@ -96,7 +98,7 @@ class ProductList extends StatelessWidget {
                       width: getProportionateScreenWidth(5),
                     ),
                     Text(
-                      'Rp ${product.price}',
+                      CurrencyFormat.convertToIdr(product.price, 0),
                       style: kPrimaryTextStyle.copyWith(
                         fontSize: 10,
                         decoration: TextDecoration.lineThrough,
@@ -200,5 +202,16 @@ class ProductList extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class CurrencyFormat {
+  static String convertToIdr(dynamic number, int decimalDigit) {
+    NumberFormat currencyFormatter = NumberFormat.currency(
+      locale: 'id',
+      symbol: 'Rp ',
+      decimalDigits: decimalDigit,
+    );
+    return currencyFormatter.format(number);
   }
 }
