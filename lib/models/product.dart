@@ -1,3 +1,7 @@
+// To parse this JSON data, do
+//
+//     final product = productFromJson(jsonString);
+
 import 'dart:convert';
 
 List<Product> productFromJson(String str) =>
@@ -13,6 +17,9 @@ class Product {
     required this.image,
     required this.price,
     required this.discount,
+    required this.city,
+    required this.star,
+    required this.terjual,
   });
 
   int id;
@@ -20,6 +27,9 @@ class Product {
   String image;
   int price;
   int discount;
+  String city;
+  double star;
+  int terjual;
 
   factory Product.fromJson(Map<String, dynamic> json) => Product(
         id: json["id"],
@@ -27,6 +37,9 @@ class Product {
         image: json["image"],
         price: json["price"],
         discount: json["discount"],
+        city: json["city"],
+        star: json["star"].toDouble(),
+        terjual: json["terjual"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -35,38 +48,8 @@ class Product {
         "image": image,
         "price": price,
         "discount": discount,
+        "city": city,
+        "star": star,
+        "terjual": terjual,
       };
 }
-
-// EXAMPLE RESPONSE
-
-// [
-//   {
-//     "id": 1,
-//     "name" : "Sambal Ikan Segar",
-//     "image": "assets/product_1.png",
-//     "price": 100000,
-//     "discount": 70
-//   },
-//   {
-//     "id": 2,
-//     "name" : "Sticker Anti Air",
-//     "image": "assets/product_2.jpg",
-//     "price": 500000,
-//     "discount": 50
-//   },
-//   {
-//     "id": 3,
-//     "name" : "Qualcomm Charge",
-//     "image": "assets/product_3.jpg",
-//     "price": 80000,
-//     "discount": 40
-//   },
-//   {
-//     "id": 4,
-//     "name" : "MaduKu Asli",
-//     "image": "assets/product_4.jpg",
-//     "price": 100000,
-//     "discount": 50
-//   }
-// ]
