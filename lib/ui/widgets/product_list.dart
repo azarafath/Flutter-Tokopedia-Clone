@@ -49,12 +49,13 @@ class ProductList extends StatelessWidget {
               ),
               Padding(
                 padding: EdgeInsets.only(
+                    right: getProportionateScreenWidth(8),
                     left: getProportionateScreenHeight(8),
                     top: getProportionateScreenHeight(4)),
                 child: Text(
                   product.name,
                   style: kPrimaryTextStyle.copyWith(
-                    fontSize: getProportionateScreenWidth(15),
+                    fontSize: getProportionateScreenWidth(14),
                   ),
                 ),
               ),
@@ -66,7 +67,7 @@ class ProductList extends StatelessWidget {
                   CurrencyFormat.convertToIdr(total, 0),
                   style: kPrimaryTextStyle.copyWith(
                     fontWeight: kBoldFontWeight,
-                    fontSize: 14,
+                    fontSize: getProportionateScreenWidth(12),
                   ),
                 ),
               ),
@@ -75,8 +76,8 @@ class ProductList extends StatelessWidget {
               ),
               Padding(
                 padding: EdgeInsets.symmetric(
-                  horizontal: getProportionateScreenWidth(8),
-                ),
+                    horizontal: getProportionateScreenWidth(8),
+                    vertical: getProportionateScreenHeight(1)),
                 child: Row(
                   children: [
                     Container(
@@ -88,7 +89,7 @@ class ProductList extends StatelessWidget {
                         child: Text(
                           '${product.discount}%',
                           style: kPrimaryTextStyle.copyWith(
-                              fontSize: 8,
+                              fontSize: getProportionateScreenWidth(9),
                               color: Colors.pink,
                               fontWeight: FontWeight.bold),
                         ),

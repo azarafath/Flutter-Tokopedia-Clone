@@ -24,7 +24,7 @@ class ProductWidget extends StatelessWidget {
                 ),
                 padding: EdgeInsets.symmetric(
                   horizontal: getProportionateScreenWidth(6),
-                  vertical: getProportionateScreenHeight(8),
+                  vertical: getProportionateScreenHeight(6),
                 ),
                 decoration: BoxDecoration(
                   color: Colors.red,
@@ -44,7 +44,7 @@ class ProductWidget extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      'For KodingWorks',
+                      'For Ahmad',
                       style: kPrimaryTextStyle.copyWith(
                           fontWeight: kBoldFontWeight,
                           fontSize: 11,
@@ -62,7 +62,7 @@ class ProductWidget extends StatelessWidget {
                 ),
                 padding: EdgeInsets.symmetric(
                   horizontal: getProportionateScreenWidth(6),
-                  vertical: getProportionateScreenHeight(8),
+                  vertical: getProportionateScreenHeight(6),
                 ),
                 decoration: BoxDecoration(
                   color: Colors.green,
@@ -100,7 +100,7 @@ class ProductWidget extends StatelessWidget {
                 ),
                 padding: EdgeInsets.symmetric(
                   horizontal: getProportionateScreenWidth(6),
-                  vertical: getProportionateScreenHeight(8),
+                  vertical: getProportionateScreenHeight(6),
                 ),
                 decoration: BoxDecoration(
                   color: Colors.blue,
@@ -138,7 +138,7 @@ class ProductWidget extends StatelessWidget {
                 ),
                 padding: EdgeInsets.symmetric(
                   horizontal: getProportionateScreenWidth(6),
-                  vertical: getProportionateScreenHeight(8),
+                  vertical: getProportionateScreenHeight(6),
                 ),
                 decoration: BoxDecoration(
                   color: Colors.grey,
