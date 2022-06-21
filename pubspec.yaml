@@ -79,14 +79,14 @@ flutter:
       fonts:
         - asset: fonts/OpenSauceOne-Regular.ttf
         - asset: fonts/OpenSauceOne-Bold.ttf
-          style: bold
+          weight: 700
         - asset: fonts/OpenSauceOne-Medium.ttf
-          style: medium
+          weight: 500
         - asset: fonts/OpenSauceOne-SemiBold.ttf
-          style: semibold
+          weight: 600
         - asset: fonts/OpenSauceOne-Light.ttf
-          style: light
-          
+          weight: 300
+
     
   #
   # For details regarding fonts from package dependencies,
