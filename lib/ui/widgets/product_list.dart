@@ -123,9 +123,49 @@ class ProductList extends StatelessWidget {
                       width: getProportionateScreenWidth(2),
                     ),
                     Text(
-                      'Jakarta',
+                      product.city,
                       style: kPrimaryTextStyle.copyWith(fontSize: 10),
                     ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(
+                  left: getProportionateScreenWidth(6),
+                  top: getProportionateScreenHeight(4),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.star_rate_rounded,
+                      color: Colors.yellow,
+                      size: getProportionateScreenWidth(19),
+                    ),
+                    SizedBox(
+                      width: getProportionateScreenWidth(2),
+                    ),
+                    Text(
+                      '${product.star}  | Terjual ${product.terjual}+',
+                      style: kPrimaryTextStyle.copyWith(
+                        fontSize: 11,
+                        fontWeight: kNormalFontWeight,
+                        color: const Color(0xff6D7588),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(right: getProportionateScreenWidth(9)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Image.asset(
+                      'assets/icon_dot.png',
+                      width: getProportionateScreenWidth(14),
+                    )
                   ],
                 ),
               ),
@@ -155,6 +195,9 @@ class ProductList extends StatelessWidget {
                   discount: 50,
                   image: 'assets/product_1.png',
                   price: 100000,
+                  city: 'Jakarta',
+                  star: 4.5,
+                  terjual: 100,
                 ),
               ),
               SizedBox(
@@ -167,6 +210,9 @@ class ProductList extends StatelessWidget {
                   discount: 40,
                   image: 'assets/product_4.jpg',
                   price: 100000,
+                  city: 'Tegal',
+                  star: 4.6,
+                  terjual: 200,
                 ),
               ),
             ],
@@ -183,6 +229,9 @@ class ProductList extends StatelessWidget {
                   discount: 30,
                   image: 'assets/product_3.jpg',
                   price: 100000,
+                  city: 'Semarang',
+                  star: 4.9,
+                  terjual: 120,
                 ),
               ),
               SizedBox(
@@ -195,6 +244,9 @@ class ProductList extends StatelessWidget {
                   discount: 80,
                   image: 'assets/product_2.jpg',
                   price: 200000,
+                  city: 'Bandung',
+                  star: 4.8,
+                  terjual: 120,
                 ),
               ),
             ],

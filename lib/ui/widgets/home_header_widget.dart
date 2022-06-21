@@ -29,10 +29,9 @@ class HomeHeader extends StatelessWidget {
           height: getProportionateScreenHeight(25),
           child: Row(
             children: [
-              const Icon(
-                Icons.location_on_outlined,
-                size: 14,
-                color: kWhiteColor,
+              Image.asset(
+                'assets/icon_location.png',
+                width: getProportionateScreenWidth(14),
               ),
               Container(
                 margin: EdgeInsets.only(

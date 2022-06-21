@@ -204,38 +204,44 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               ),
             ),
             Container(
-              margin: EdgeInsets.symmetric(
-                  horizontal: getProportionateScreenWidth(8)),
-              width: getProportionateScreenWidth(20),
-              child: Icon(
-                Icons.mail_outline_outlined,
+              margin: EdgeInsets.only(
+                left: getProportionateScreenWidth(10),
+                right: getProportionateScreenWidth(7),
+              ),
+              width: getProportionateScreenWidth(24),
+              child: Image.asset(
+                'assets/icon_message.png',
+                fit: BoxFit.cover,
                 color: _animationIcon.value,
               ),
             ),
             Container(
               margin: EdgeInsets.symmetric(
-                  horizontal: getProportionateScreenWidth(8)),
-              width: getProportionateScreenWidth(20),
-              child: Icon(
-                Icons.notifications_none_outlined,
+                  horizontal: getProportionateScreenWidth(7)),
+              width: getProportionateScreenWidth(24),
+              child: Image.asset(
+                'assets/icon_notification.png',
+                fit: BoxFit.cover,
                 color: _animationIcon.value,
               ),
             ),
             Container(
               margin: EdgeInsets.symmetric(
-                  horizontal: getProportionateScreenWidth(8)),
-              width: getProportionateScreenWidth(20),
-              child: Icon(
-                Icons.shopping_cart_outlined,
+                  horizontal: getProportionateScreenWidth(7)),
+              width: getProportionateScreenWidth(24),
+              child: Image.asset(
+                'assets/icon_cart.png',
+                fit: BoxFit.cover,
                 color: _animationIcon.value,
               ),
             ),
             Container(
               margin: EdgeInsets.symmetric(
-                  horizontal: getProportionateScreenWidth(8)),
-              width: getProportionateScreenWidth(20),
-              child: Icon(
-                Icons.menu,
+                  horizontal: getProportionateScreenWidth(7)),
+              width: getProportionateScreenWidth(24),
+              child: Image.asset(
+                'assets/icon_menu.png',
+                fit: BoxFit.cover,
                 color: _animationIcon.value,
               ),
             ),
