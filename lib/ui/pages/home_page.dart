@@ -162,7 +162,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       return AppBar(
         automaticallyImplyLeading: false,
         foregroundColor: _animationBackground.value,
-        toolbarHeight: getProportionateScreenHeight(50),
+        toolbarHeight: getProportionateScreenHeight(60),
         backgroundColor: _animationBackground.value,
         elevation: 0.0,
         flexibleSpace: Container(
