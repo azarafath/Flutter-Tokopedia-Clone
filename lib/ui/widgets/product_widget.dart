@@ -15,10 +15,10 @@ class ProductWidget extends StatelessWidget {
           child: Row(
             children: [
               Container(
-                width: getProportionateScreenWidth(104),
+                width: getProportionateScreenWidth(100),
                 height: getProportionateScreenHeight(52),
                 margin: EdgeInsets.only(
-                  left: getProportionateScreenWidth(10),
+                  left: getProportionateScreenWidth(16),
                   right: getProportionateScreenWidth(8),
                   bottom: getProportionateScreenHeight(15),
                 ),
@@ -54,7 +54,7 @@ class ProductWidget extends StatelessWidget {
                 ),
               ),
               Container(
-                width: getProportionateScreenWidth(104),
+                width: getProportionateScreenWidth(100),
                 height: getProportionateScreenHeight(52),
                 margin: EdgeInsets.only(
                   right: getProportionateScreenWidth(8),
@@ -92,7 +92,7 @@ class ProductWidget extends StatelessWidget {
                 ),
               ),
               Container(
-                width: getProportionateScreenWidth(104),
+                width: getProportionateScreenWidth(100),
                 height: getProportionateScreenHeight(52),
                 margin: EdgeInsets.only(
                   right: getProportionateScreenWidth(8),
@@ -130,7 +130,7 @@ class ProductWidget extends StatelessWidget {
                 ),
               ),
               Container(
-                width: getProportionateScreenWidth(104),
+                width: getProportionateScreenWidth(100),
                 height: getProportionateScreenHeight(52),
                 margin: EdgeInsets.only(
                   right: getProportionateScreenWidth(8),

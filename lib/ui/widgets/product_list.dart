@@ -181,8 +181,8 @@ class ProductList extends StatelessWidget {
 
     return Container(
       margin: EdgeInsets.only(
-        left: getProportionateScreenWidth(13),
-        right: getProportionateScreenWidth(13),
+        left: getProportionateScreenWidth(16),
+        right: getProportionateScreenWidth(16),
       ),
       width: double.infinity,
       child: Column(

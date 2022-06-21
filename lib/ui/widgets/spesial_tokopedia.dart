@@ -16,7 +16,7 @@ class SpesialTokopedia extends StatelessWidget {
         children: [
           Container(
             margin: EdgeInsets.only(
-              left: getProportionateScreenWidth(14),
+              left: getProportionateScreenWidth(16),
             ),
             child: Text(
               'Spesial di Tokopedia hari ini',

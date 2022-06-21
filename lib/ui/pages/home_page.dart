@@ -160,14 +160,17 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
     PreferredSizeWidget appBar() {
       return AppBar(
+        automaticallyImplyLeading: false,
+        foregroundColor: _animationBackground.value,
         toolbarHeight: getProportionateScreenHeight(50),
         backgroundColor: _animationBackground.value,
-        elevation: 0,
+        elevation: 0.0,
         flexibleSpace: Container(
           padding: EdgeInsets.only(
-              left: getProportionateScreenWidth(13),
-              top: getProportionateScreenHeight(35),
-              right: getProportionateScreenWidth(13)),
+            left: getProportionateScreenWidth(13),
+            top: getProportionateScreenHeight(35),
+            right: getProportionateScreenWidth(13),
+          ),
           child: Row(children: [
             Expanded(
               child: Container(
@@ -255,6 +258,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         statusBarColor: Colors.transparent,
       ),
       child: Scaffold(
+        backgroundColor: kPrimaryColor,
         appBar: appBar(),
         bottomNavigationBar: const CustomNavBar(),
         body: NotificationListener(
@@ -271,6 +275,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           },
           child: Stack(
             children: [
+              Container(
+                width: double.infinity,
+                height: double.infinity,
+                color: kWhiteColor,
+              ),
               SmartRefresher(
                 enablePullUp: true,
                 controller: _refreshController,

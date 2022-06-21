@@ -65,7 +65,7 @@ class HomeCategory extends StatelessWidget {
         children: [
           Container(
             margin: EdgeInsets.only(
-              left: getProportionateScreenWidth(14),
+              left: getProportionateScreenWidth(16),
             ),
             child: Text(
               'Kategori Pilihan',
@@ -86,7 +86,7 @@ class HomeCategory extends StatelessWidget {
                   children: [
                     Container(
                       margin: EdgeInsets.only(
-                          left: getProportionateScreenWidth(10)),
+                          left: getProportionateScreenWidth(16)),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
