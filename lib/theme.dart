@@ -14,6 +14,7 @@ const FontWeight kNormalFontWeight = FontWeight.w400;
 const FontWeight kLightFontWeight = FontWeight.w300;
 const FontWeight kMediumFontWeight = FontWeight.w500;
 
-TextStyle kPrimaryTextStyle = GoogleFonts.roboto(
+TextStyle kPrimaryTextStyle = const TextStyle(
+  fontFamily: 'OpenSauceOne',
   color: kBlackColor,
 );
