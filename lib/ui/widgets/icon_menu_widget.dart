@@ -11,13 +11,13 @@ class IconMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 10),
-      width: 50,
+      margin: const EdgeInsets.symmetric(horizontal: 7),
+      width: getProportionateScreenWidth(55),
       child: Column(
         children: [
           Container(
-            width: 40,
-            height: 40,
+            width: getProportionateScreenWidth(40),
+            height: getProportionateScreenHeight(40),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(100),
             ),
@@ -30,7 +30,7 @@ class IconMenu extends StatelessWidget {
             label,
             style: kPrimaryTextStyle.copyWith(
               fontWeight: kMediumFontWeight,
-              fontSize: getProportionateScreenWidth(10),
+              fontSize: getProportionateScreenWidth(9),
             ),
             textAlign: TextAlign.center,
           ),
