@@ -16,7 +16,7 @@ class HomeHeader extends StatelessWidget {
     return Stack(
       children: [
         ClipPath(
-          clipper: ClipPathClass2(),
+          clipper: ClipPathClass(),
           child: Container(
             height: getProportionateScreenHeight(95),
             color: kPrimaryColor,
@@ -318,25 +318,4 @@ class CurrencyFormat {
     );
     return currencyFormatter.format(number);
   }
-}
-
-class ClipPathClass2 extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    Path path = Path();
-    path.lineTo(0, size.height - 43);
-    path.quadraticBezierTo(
-      size.width / 2,
-      size.height,
-      size.width,
-      size.height - 43,
-    );
-    path.lineTo(size.width, 0);
-    path.close();
-
-    return path;
-  }
-
-  @override
-  bool shouldReclip(covariant CustomClipper<Path> oldClipper) => false;
 }
