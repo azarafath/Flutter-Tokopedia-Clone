@@ -16,14 +16,15 @@ class HomeHeader extends StatelessWidget {
     return Stack(
       children: [
         ClipPath(
-          clipper: ClipPathClass(),
+          clipper: ClipPathClass2(),
           child: Container(
-            height: getProportionateScreenHeight(100),
+            height: getProportionateScreenHeight(95),
             color: kPrimaryColor,
           ),
         ),
         Container(
           margin: EdgeInsets.symmetric(
+            vertical: getProportionateScreenHeight(4),
             horizontal: getProportionateScreenWidth(16),
           ),
           child: Row(
@@ -72,7 +73,7 @@ class HomeHeader extends StatelessWidget {
           margin: EdgeInsets.only(
             left: getProportionateScreenWidth(16),
             right: getProportionateScreenWidth(16),
-            top: getProportionateScreenHeight(27),
+            top: getProportionateScreenHeight(33),
           ),
           padding: EdgeInsets.symmetric(
             vertical: getProportionateScreenHeight(11),
@@ -317,4 +318,25 @@ class CurrencyFormat {
     );
     return currencyFormatter.format(number);
   }
+}
+
+class ClipPathClass2 extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    Path path = Path();
+    path.lineTo(0, size.height - 43);
+    path.quadraticBezierTo(
+      size.width / 2,
+      size.height,
+      size.width,
+      size.height - 43,
+    );
+    path.lineTo(size.width, 0);
+    path.close();
+
+    return path;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) => false;
 }

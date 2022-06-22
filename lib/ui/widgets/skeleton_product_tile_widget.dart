@@ -10,11 +10,11 @@ class SkeletonProductTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(
-        vertical: getProportionateScreenHeight(10),
+        vertical: getProportionateScreenHeight(20),
         horizontal: getProportionateScreenWidth(5),
       ),
-      height: getProportionateScreenHeight(260),
-      width: getProportionateScreenWidth(120),
+      height: getProportionateScreenHeight(310),
+      width: getProportionateScreenWidth(140),
       decoration: BoxDecoration(
         color: kWhiteColor,
         borderRadius: BorderRadius.circular(10),
@@ -34,10 +34,25 @@ class SkeletonProductTile extends StatelessWidget {
                   topRight: Radius.circular(10),
                 ),
               ),
-              height: getProportionateScreenHeight(130),
+              height: getProportionateScreenHeight(150),
               width: double.infinity,
             ),
           ),
+          Padding(
+              padding: EdgeInsets.only(
+                  left: 8.0, top: getProportionateScreenHeight(5)),
+              child: Shimmer.fromColors(
+                baseColor: kLineDarkColor,
+                highlightColor: kWhiteGreyColor,
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: kWhiteColor,
+                  ),
+                  width: getProportionateScreenWidth(60),
+                  height: getProportionateScreenHeight(15),
+                ),
+              )),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
@@ -47,10 +62,10 @@ class SkeletonProductTile extends StatelessWidget {
                   highlightColor: kWhiteGreyColor,
                   child: Container(
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(4),
                         color: Colors.pink.shade50),
                     child: Padding(
-                      padding: const EdgeInsets.all(3.0),
+                      padding: const EdgeInsets.all(4),
                       child: SizedBox(
                         width: getProportionateScreenWidth(16),
                         height: getProportionateScreenHeight(8),
@@ -69,30 +84,13 @@ class SkeletonProductTile extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                       color: kWhiteColor,
                     ),
-                    width: getProportionateScreenWidth(55),
-                    height: getProportionateScreenHeight(8),
+                    width: getProportionateScreenWidth(60),
+                    height: getProportionateScreenHeight(12),
                   ),
                 )
               ],
             ),
           ),
-          SizedBox(
-            height: getProportionateScreenHeight(9),
-          ),
-          Padding(
-              padding: const EdgeInsets.only(left: 8.0),
-              child: Shimmer.fromColors(
-                baseColor: kLineDarkColor,
-                highlightColor: kWhiteGreyColor,
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: kWhiteColor,
-                  ),
-                  width: getProportionateScreenWidth(60),
-                  height: getProportionateScreenHeight(15),
-                ),
-              )),
           SizedBox(
             height: getProportionateScreenHeight(5),
           ),
@@ -113,7 +111,7 @@ class SkeletonProductTile extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  width: getProportionateScreenWidth(2),
+                  width: getProportionateScreenWidth(4),
                 ),
                 Shimmer.fromColors(
                   baseColor: kLineDarkColor,
@@ -132,6 +130,22 @@ class SkeletonProductTile extends StatelessWidget {
           ),
           SizedBox(
             height: getProportionateScreenHeight(8),
+          ),
+          Shimmer.fromColors(
+            baseColor: kLineDarkColor,
+            highlightColor: kWhiteGreyColor,
+            child: Container(
+              margin: EdgeInsets.only(
+                bottom: getProportionateScreenHeight(6),
+                left: getProportionateScreenWidth(10),
+              ),
+              width: getProportionateScreenWidth(50),
+              height: getProportionateScreenHeight(28),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(4),
+                color: kWhiteColor,
+              ),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -158,8 +172,8 @@ class SkeletonProductTile extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                   color: kWhiteColor,
                 ),
-                width: getProportionateScreenWidth(50),
-                height: getProportionateScreenHeight(5),
+                width: getProportionateScreenWidth(60),
+                height: getProportionateScreenHeight(8),
               ),
             ),
           ),

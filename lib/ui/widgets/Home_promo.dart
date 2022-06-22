@@ -47,13 +47,13 @@ class HomePromo extends StatelessWidget {
               // align image left
             ),
           ),
-          height: getProportionateScreenHeight(280),
+          height: getProportionateScreenHeight(350),
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: [
               Container(
                 margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 2),
-                width: getProportionateScreenWidth(110),
+                width: getProportionateScreenWidth(130),
               ),
               FutureBuilder<List<Product>?>(
                 future: productProvider.getProducts(),

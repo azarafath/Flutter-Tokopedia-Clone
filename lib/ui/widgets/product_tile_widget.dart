@@ -19,11 +19,11 @@ class ProductTile extends StatelessWidget {
     var total = price - price * discount ~/ 100;
     return Container(
       margin: EdgeInsets.symmetric(
-        vertical: getProportionateScreenHeight(10),
+        vertical: getProportionateScreenHeight(20),
         horizontal: getProportionateScreenWidth(5),
       ),
-      height: getProportionateScreenHeight(260),
-      width: getProportionateScreenWidth(120),
+      height: getProportionateScreenHeight(310),
+      width: getProportionateScreenWidth(140),
       decoration: BoxDecoration(
         color: kWhiteColor,
         borderRadius: BorderRadius.circular(10),
@@ -46,8 +46,19 @@ class ProductTile extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            height: getProportionateScreenHeight(140),
+            height: getProportionateScreenHeight(150),
             width: double.infinity,
+          ),
+          Padding(
+            padding: EdgeInsets.only(
+                left: 8.0, top: getProportionateScreenHeight(5)),
+            child: Text(
+              CurrencyFormat.convertToIdr(total, 0),
+              style: kPrimaryTextStyle.copyWith(
+                fontWeight: kBoldFontWeight,
+                fontSize: 12,
+              ),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -58,7 +69,7 @@ class ProductTile extends StatelessWidget {
                       borderRadius: BorderRadius.circular(4),
                       color: Colors.pink.shade50),
                   child: Padding(
-                    padding: const EdgeInsets.all(3.0),
+                    padding: const EdgeInsets.all(4),
                     child: Text(
                       '$discount%',
                       style: kPrimaryTextStyle.copyWith(
@@ -87,19 +98,6 @@ class ProductTile extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 8.0),
-            child: Text(
-              CurrencyFormat.convertToIdr(total, 0),
-              style: kPrimaryTextStyle.copyWith(
-                fontWeight: kBoldFontWeight,
-                fontSize: 12,
-              ),
-            ),
-          ),
-          SizedBox(
-            height: getProportionateScreenHeight(5),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 8.0),
             child: Row(
               children: [
                 SizedBox(
@@ -107,17 +105,30 @@ class ProductTile extends StatelessWidget {
                     height: getProportionateScreenHeight(15),
                     child: Image.asset('assets/icon_pro.png')),
                 SizedBox(
-                  width: getProportionateScreenWidth(2),
+                  width: getProportionateScreenWidth(4),
                 ),
                 Text(
                   'Jakarta',
-                  style: kPrimaryTextStyle.copyWith(fontSize: 10),
+                  style: kPrimaryTextStyle.copyWith(
+                    fontSize: getProportionateScreenWidth(12),
+                    color: Colors.grey,
+                  ),
                 ),
               ],
             ),
           ),
           SizedBox(
-            height: getProportionateScreenHeight(8),
+            height: getProportionateScreenHeight(4),
+          ),
+          Container(
+            margin: EdgeInsets.only(
+              bottom: getProportionateScreenHeight(2),
+              left: getProportionateScreenWidth(4),
+            ),
+            child: Image.asset(
+              'assets/image_freeongkir.png',
+              width: getProportionateScreenWidth(50),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),

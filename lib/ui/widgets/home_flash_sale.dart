@@ -27,7 +27,7 @@ class HomeFlashSale extends StatelessWidget {
                   'Spesial warga Semarang',
                   style: kPrimaryTextStyle.copyWith(
                     fontSize: getProportionateScreenWidth(15),
-                    fontWeight: kBoldFontWeight,
+                    fontWeight: FontWeight.w900,
                   ),
                 ),
                 SizedBox(
@@ -84,7 +84,7 @@ class HomeFlashSale extends StatelessWidget {
                       'Lihat semua',
                       style: kPrimaryTextStyle.copyWith(
                         fontSize: getProportionateScreenWidth(12),
-                        fontWeight: kBoldFontWeight,
+                        fontWeight: FontWeight.w900,
                         color: kPrimaryColor,
                       ),
                     ),
@@ -94,7 +94,9 @@ class HomeFlashSale extends StatelessWidget {
             ),
           ),
           //Items
-          SizedBox(height: getProportionateScreenHeight(10)),
+          SizedBox(
+            height: getProportionateScreenHeight(12),
+          ),
           Container(
             width: MediaQuery.of(context).size.width,
             decoration: const BoxDecoration(
@@ -105,7 +107,7 @@ class HomeFlashSale extends StatelessWidget {
                 // align image left
               ),
             ),
-            height: getProportionateScreenHeight(280),
+            height: getProportionateScreenHeight(350),
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [

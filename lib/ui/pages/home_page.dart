@@ -174,7 +174,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           child: Row(children: [
             Expanded(
               child: Container(
-                height: getProportionateScreenHeight(37),
+                height: getProportionateScreenHeight(39),
                 decoration: BoxDecoration(
                   color: kWhiteColor,
                   borderRadius: BorderRadius.circular(
@@ -296,8 +296,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       show: status,
                       child: Image.asset(
                         'assets/floating.gif',
-                        height: getProportionateScreenHeight(120),
-                      ))
+                        height: getProportionateScreenHeight(110),
+                      ),
+                    )
                   : const SizedBox(),
             ],
           ),

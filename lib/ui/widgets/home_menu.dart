@@ -16,7 +16,7 @@ class HomeMenu extends StatelessWidget {
     CarouselProvider carouselProvider = Provider.of<CarouselProvider>(context);
     Widget buildCarousel(carousel) {
       return CarouselSlider(
-        options: CarouselOptions(viewportFraction: 0.95, aspectRatio: 50 / 16),
+        options: CarouselOptions(viewportFraction: 0.92, aspectRatio: 53 / 16),
         items: carousel.map<Widget>((i) {
           return Builder(
             builder: (BuildContext context) {
@@ -38,7 +38,7 @@ class HomeMenu extends StatelessWidget {
 
     Widget skeletonCarousel() {
       return CarouselSlider(
-        options: CarouselOptions(viewportFraction: 0.95, aspectRatio: 50 / 16),
+        options: CarouselOptions(viewportFraction: 0.92, aspectRatio: 53 / 16),
         // item shimmer container
         items: [
           Shimmer.fromColors(
@@ -50,7 +50,7 @@ class HomeMenu extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
                 child: Container(
                   color: Colors.grey[300],
-                  height: getProportionateScreenHeight(50),
+                  height: getProportionateScreenHeight(10),
                   width: double.infinity,
                 ),
               ),
@@ -65,7 +65,7 @@ class HomeMenu extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
                 child: Container(
                   color: Colors.grey[300],
-                  height: getProportionateScreenHeight(50),
+                  height: getProportionateScreenHeight(10),
                   width: double.infinity,
                 ),
               ),
@@ -80,48 +80,52 @@ class HomeMenu extends StatelessWidget {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: const [
-              IconMenu(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                width: getProportionateScreenWidth(8),
+              ),
+              const IconMenu(
                 label: 'Official Store',
                 image: 'assets/icon_official_storee.png',
               ),
-              IconMenu(
+              const IconMenu(
                 label: 'Lihat Semua',
                 image: 'assets/icon_lihat_semua.png',
               ),
-              IconMenu(
+              const IconMenu(
                 label: 'Kebutuhan Harian',
                 image: 'assets/icon_kebutuhan_harian.png',
               ),
-              IconMenu(
+              const IconMenu(
                 label: 'Handphone & Tablet',
                 image: 'assets/icon_handphone_tablet.png',
               ),
-              IconMenu(
+              const IconMenu(
                 label: 'TopUp & Tagihan',
                 image: 'assets/icon_tagihan.png',
               ),
-              IconMenu(
+              const IconMenu(
                 label: 'Travel & Entertainment',
                 image: 'assets/icon_travel.png',
               ),
-              IconMenu(
+              const IconMenu(
                 label: 'Keuangan',
                 image: 'assets/icon_keuangan.png',
               ),
-              IconMenu(
+              const IconMenu(
                 label: 'Kesehatan',
                 image: 'assets/icon_kesehatan.png',
               ),
-              IconMenu(
+              const IconMenu(
                 label: 'Elektronik',
                 image: 'assets/icon_elektronik.png',
               ),
-              IconMenu(
+              const IconMenu(
                 label: 'Office & Stationery',
                 image: 'assets/icon_office_stationery.png',
               ),
-              IconMenu(
+              const IconMenu(
                 label: 'Perawatan Tubuh',
                 image: 'assets/icon_perawatan_tubuh.png',
               ),
@@ -129,7 +133,7 @@ class HomeMenu extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: getProportionateScreenHeight(15),
+          height: getProportionateScreenHeight(45),
         ),
         FutureBuilder(
           future: carouselProvider.getCarousel(),
@@ -148,34 +152,41 @@ class HomeMenu extends StatelessWidget {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: const [
-              IconMenu(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                width: getProportionateScreenWidth(8),
+              ),
+              const IconMenu(
                 label: 'Deals Hari Ini',
                 image: 'assets/icon_promo.png',
               ),
-              IconMenu(
+              const IconMenu(
                 label: 'Live Shopping',
                 image: 'assets/icon_live_shopping.png',
               ),
-              IconMenu(
+              const IconMenu(
                 label: 'Tokopedia Seru',
                 image: 'assets/icon_tokopedia_seru.png',
               ),
-              IconMenu(
+              const IconMenu(
                 label: 'Promo di Semarang',
                 image: 'assets/icon_promo_lokasi.png',
               ),
-              IconMenu(
+              const IconMenu(
                 label: 'Bayar di Tempat',
                 image: 'assets/icon_cod.png',
               ),
-              IconMenu(
+              const IconMenu(
                 label: 'Bangga Lokal',
                 image: 'assets/icon_bangga_lokal.png',
               ),
             ],
           ),
         ),
+        SizedBox(
+          height: getProportionateScreenHeight(18),
+        )
       ],
     );
   }

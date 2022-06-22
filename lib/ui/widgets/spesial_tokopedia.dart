@@ -14,16 +14,29 @@ class SpesialTokopedia extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            margin: EdgeInsets.only(
-              left: getProportionateScreenWidth(16),
+          Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: getProportionateScreenWidth(16),
             ),
-            child: Text(
-              'Spesial di Tokopedia hari ini',
-              style: kPrimaryTextStyle.copyWith(
-                fontSize: getProportionateScreenWidth(15),
-                fontWeight: kBoldFontWeight,
-              ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Spesial di Tokopedia hari ini',
+                  style: kPrimaryTextStyle.copyWith(
+                    fontSize: getProportionateScreenWidth(15),
+                    fontWeight: kBoldFontWeight,
+                  ),
+                ),
+                Text(
+                  'Lihat semua',
+                  style: kPrimaryTextStyle.copyWith(
+                    fontSize: getProportionateScreenWidth(12),
+                    fontWeight: FontWeight.w900,
+                    color: kPrimaryColor,
+                  ),
+                ),
+              ],
             ),
           ),
           SizedBox(

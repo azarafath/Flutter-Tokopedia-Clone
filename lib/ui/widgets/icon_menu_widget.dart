@@ -11,8 +11,8 @@ class IconMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 7),
-      width: getProportionateScreenWidth(55),
+      margin: const EdgeInsets.symmetric(horizontal: 4),
+      width: getProportionateScreenWidth(58),
       child: Column(
         children: [
           Container(
@@ -22,17 +22,22 @@ class IconMenu extends StatelessWidget {
               borderRadius: BorderRadius.circular(100),
             ),
             child: Padding(
-              padding: const EdgeInsets.all(5),
+              padding: const EdgeInsets.all(3),
               child: Image.asset(image),
             ),
           ),
-          Text(
-            label,
-            style: kPrimaryTextStyle.copyWith(
-              fontWeight: kMediumFontWeight,
-              fontSize: getProportionateScreenWidth(9),
+          Container(
+            margin: EdgeInsets.only(
+              top: getProportionateScreenHeight(5),
             ),
-            textAlign: TextAlign.center,
+            child: Text(
+              label,
+              style: kPrimaryTextStyle.copyWith(
+                fontWeight: kMediumFontWeight,
+                fontSize: getProportionateScreenWidth(9),
+              ),
+              textAlign: TextAlign.center,
+            ),
           ),
         ],
       ),
