@@ -182,7 +182,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   ),
                   border: Border.all(
                     color: Colors.grey,
-                    width: getProportionateScreenWidth(0.25),
+                    width: getProportionateScreenWidth(0.5),
                   ),
                 ),
                 child: TextField(

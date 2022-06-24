@@ -109,6 +109,8 @@ class HomeHeader extends StatelessWidget {
   }
 
   Widget loaded(Balance balance) {
+    final currencyFormatter = NumberFormat('#,##0', 'ID');
+
     return Row(
       children: [
         Expanded(
@@ -136,7 +138,7 @@ class HomeHeader extends StatelessWidget {
                     height: getProportionateScreenHeight(2),
                   ),
                   Text(
-                    '${balance.coins} Coins',
+                    '${currencyFormatter.format(balance.coins)} Coins',
                     style: kPrimaryTextStyle.copyWith(
                       color: Colors.grey,
                       fontWeight: kLightFontWeight,

@@ -54,7 +54,7 @@ class HomeFlashSale extends StatelessWidget {
                             children: [
                               Image.asset(
                                 'assets/icon_clock.png',
-                                width: getProportionateScreenWidth(12),
+                                width: getProportionateScreenWidth(14),
                               ),
                               SizedBox(
                                 width: getProportionateScreenWidth(5),

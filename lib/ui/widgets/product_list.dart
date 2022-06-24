@@ -158,11 +158,28 @@ class ProductList extends StatelessWidget {
                   ],
                 ),
               ),
+              Container(
+                margin: EdgeInsets.only(
+                  bottom: getProportionateScreenHeight(2),
+                  left: getProportionateScreenWidth(4),
+                ),
+                child: Image.asset(
+                  'assets/image_freeongkir.png',
+                  width: getProportionateScreenWidth(50),
+                ),
+              ),
               Padding(
-                padding: EdgeInsets.only(right: getProportionateScreenWidth(9)),
+                padding: EdgeInsets.symmetric(
+                    horizontal: getProportionateScreenWidth(10)),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    Text(
+                      'Tiba 24-27 Jun',
+                      style: kPrimaryTextStyle.copyWith(
+                          fontSize: getProportionateScreenWidth(8.5),
+                          color: Colors.grey),
+                    ),
                     Image.asset(
                       'assets/icon_dot.png',
                       width: getProportionateScreenWidth(14),

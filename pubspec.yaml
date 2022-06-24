@@ -35,7 +35,6 @@ dependencies:
     sdk: flutter
   flutter_countdown_timer: ^4.1.0
   flutter_launcher_icons: ^0.9.3
-  google_fonts: ^3.0.1
   http: ^0.13.4
   intl: ^0.17.0
   provider: ^6.0.3
@@ -86,8 +85,5 @@ flutter:
           weight: 600
         - asset: fonts/OpenSauceOne-Light.ttf
           weight: 300
-
-    
-  #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
