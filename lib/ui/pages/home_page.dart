@@ -198,11 +198,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       ),
                     ),
                     Text(
-                      'Magang di KodingWorks',
+                      'KodingWorks',
                       style: kPrimaryTextStyle.copyWith(
-                        color: Colors.grey.withOpacity(0.8),
+                        color: Colors.grey.withOpacity(0.9),
                         fontWeight: kMediumFontWeight,
-                        fontSize: getProportionateScreenWidth(11.2),
+                        fontSize: getProportionateScreenWidth(11.5),
                       ),
                     )
                   ],
