@@ -18,13 +18,12 @@ class HomeHeader extends StatelessWidget {
         ClipPath(
           clipper: ClipPathClass(),
           child: Container(
-            height: getProportionateScreenHeight(95),
+            height: getProportionateScreenHeight(92),
             color: kPrimaryColor,
           ),
         ),
         Container(
           margin: EdgeInsets.symmetric(
-            vertical: getProportionateScreenHeight(4),
             horizontal: getProportionateScreenWidth(16),
           ),
           child: Row(
@@ -73,7 +72,7 @@ class HomeHeader extends StatelessWidget {
           margin: EdgeInsets.only(
             left: getProportionateScreenWidth(16),
             right: getProportionateScreenWidth(16),
-            top: getProportionateScreenHeight(33),
+            top: getProportionateScreenHeight(28),
           ),
           padding: EdgeInsets.symmetric(
             vertical: getProportionateScreenHeight(11),
