@@ -178,38 +178,41 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 decoration: BoxDecoration(
                   color: kWhiteColor,
                   borderRadius: BorderRadius.circular(
-                    getProportionateScreenWidth(7),
+                    getProportionateScreenWidth(10),
                   ),
                   border: Border.all(
-                    color: Colors.grey,
+                    color: Colors.grey.withOpacity(0.8),
                     width: getProportionateScreenWidth(0.5),
                   ),
                 ),
-                child: TextField(
-                  textInputAction: TextInputAction.search,
-                  decoration: InputDecoration(
-                    prefixIcon: const Icon(
-                      Icons.search,
-                      size: 17,
-                      color: Colors.grey,
+                child: Row(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(
+                          left: getProportionateScreenWidth(10),
+                          right: getProportionateScreenWidth(4)),
+                      child: Icon(
+                        Icons.search,
+                        size: 17,
+                        color: Colors.grey.withOpacity(0.8),
+                      ),
                     ),
-                    border: InputBorder.none,
-                    hintText: 'kodingworks',
-                    hintStyle: kPrimaryTextStyle.copyWith(
-                      color: Colors.grey,
-                    ),
-                  ),
-                  style: kPrimaryTextStyle.copyWith(
-                    color: Colors.grey,
-                    fontSize: getProportionateScreenWidth(14),
-                  ),
+                    Text(
+                      'Magang di KodingWorks',
+                      style: kPrimaryTextStyle.copyWith(
+                        color: Colors.grey.withOpacity(0.8),
+                        fontWeight: kMediumFontWeight,
+                        fontSize: getProportionateScreenWidth(11.2),
+                      ),
+                    )
+                  ],
                 ),
               ),
             ),
             Container(
               margin: EdgeInsets.only(
                 left: getProportionateScreenWidth(10),
-                right: getProportionateScreenWidth(7),
+                right: getProportionateScreenWidth(5),
               ),
               width: getProportionateScreenWidth(24),
               child: Image.asset(
@@ -220,7 +223,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             ),
             Container(
               margin: EdgeInsets.symmetric(
-                  horizontal: getProportionateScreenWidth(7)),
+                  horizontal: getProportionateScreenWidth(5)),
               width: getProportionateScreenWidth(24),
               child: Image.asset(
                 'assets/icon_notification.png',
@@ -230,7 +233,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             ),
             Container(
               margin: EdgeInsets.symmetric(
-                  horizontal: getProportionateScreenWidth(7)),
+                  horizontal: getProportionateScreenWidth(5)),
               width: getProportionateScreenWidth(24),
               child: Image.asset(
                 'assets/icon_cart.png',
@@ -240,7 +243,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             ),
             Container(
               margin: EdgeInsets.symmetric(
-                  horizontal: getProportionateScreenWidth(7)),
+                  horizontal: getProportionateScreenWidth(5)),
               width: getProportionateScreenWidth(24),
               child: Image.asset(
                 'assets/icon_menu.png',
