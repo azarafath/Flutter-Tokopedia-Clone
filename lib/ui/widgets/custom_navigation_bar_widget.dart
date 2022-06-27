@@ -8,50 +8,55 @@ class CustomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: getProportionateScreenHeight(70),
+      height: getProportionateScreenHeight(60),
       decoration: const BoxDecoration(
         color: kWhiteColor,
       ),
       child: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         selectedLabelStyle: kPrimaryTextStyle.copyWith(
-            fontSize: getProportionateScreenWidth(13)),
+            fontSize: getProportionateScreenWidth(12)),
         selectedItemColor: kBlackColor,
         unselectedItemColor: kBlackColor,
         elevation: 0,
         items: [
           BottomNavigationBarItem(
             label: 'Home',
-            icon: SizedBox(
-              height: getProportionateScreenHeight(24),
+            icon: Container(
+              margin: EdgeInsets.only(bottom: getProportionateScreenHeight(2)),
+              height: getProportionateScreenHeight(20),
               child: Image.asset('assets/nav-icon/icon_home.png'),
             ),
           ),
           BottomNavigationBarItem(
             label: 'Feed',
-            icon: SizedBox(
-              height: getProportionateScreenHeight(24),
+            icon: Container(
+              margin: EdgeInsets.only(bottom: getProportionateScreenHeight(2)),
+              height: getProportionateScreenHeight(20),
               child: Image.asset('assets/nav-icon/icon_feed.png'),
             ),
           ),
           BottomNavigationBarItem(
             label: 'Official Store',
-            icon: SizedBox(
-              height: getProportionateScreenHeight(24),
+            icon: Container(
+              margin: EdgeInsets.only(bottom: getProportionateScreenHeight(2)),
+              height: getProportionateScreenHeight(20),
               child: Image.asset('assets/nav-icon/icon_official_store.png'),
             ),
           ),
           BottomNavigationBarItem(
             label: 'Wishlist',
-            icon: SizedBox(
-              height: getProportionateScreenHeight(24),
+            icon: Container(
+              margin: EdgeInsets.only(bottom: getProportionateScreenHeight(2)),
+              height: getProportionateScreenHeight(20),
               child: Image.asset('assets/nav-icon/icon_wishlist.png'),
             ),
           ),
           BottomNavigationBarItem(
             label: 'Transaksi',
-            icon: SizedBox(
-              height: getProportionateScreenHeight(24),
+            icon: Container(
+              margin: EdgeInsets.only(bottom: getProportionateScreenHeight(2)),
+              height: getProportionateScreenHeight(20),
               child: Image.asset('assets/nav-icon/icon_transaksi.png'),
             ),
           ),
