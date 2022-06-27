@@ -5,6 +5,7 @@ import 'package:tokped/size_config.dart';
 import 'package:tokped/theme.dart';
 import 'package:tokped/ui/widgets/Home_promo.dart';
 import 'package:tokped/ui/widgets/custom_navigation_bar_widget.dart';
+import 'package:tokped/ui/widgets/deals_hari_ini.dart';
 import 'package:tokped/ui/widgets/home_category.dart';
 import 'package:tokped/ui/widgets/home_flash_sale.dart';
 import 'package:tokped/ui/widgets/home_header_widget.dart';
@@ -125,6 +126,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     const HomeMenu(),
     const HomeFlashSale(),
     const SpesialTokopedia(),
+    const DealsHariIni(),
     const HomePromo(),
     const HomeCategory(),
     const ProductWidget(),
@@ -181,8 +183,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     getProportionateScreenWidth(10),
                   ),
                   border: Border.all(
-                    color: Colors.grey.withOpacity(0.8),
-                    width: getProportionateScreenWidth(0.5),
+                    color: const Color(0xff73767A),
+                    width: getProportionateScreenWidth(0.4),
                   ),
                 ),
                 child: Row(
@@ -190,18 +192,18 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     Container(
                       margin: EdgeInsets.only(
                           left: getProportionateScreenWidth(10),
-                          right: getProportionateScreenWidth(4)),
-                      child: Icon(
+                          right: getProportionateScreenWidth(5)),
+                      child: const Icon(
                         Icons.search,
                         size: 17,
-                        color: Colors.grey.withOpacity(0.8),
+                        color: Color(0xff73767A),
                       ),
                     ),
                     Text(
                       'KodingWorks',
                       style: kPrimaryTextStyle.copyWith(
-                        color: Colors.grey.withOpacity(0.9),
-                        fontWeight: kMediumFontWeight,
+                        color: const Color(0xff73767A),
+                        letterSpacing: 0.8,
                         fontSize: getProportionateScreenWidth(11.5),
                       ),
                     )
