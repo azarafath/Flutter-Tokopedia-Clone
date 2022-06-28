@@ -52,8 +52,8 @@ class DealsHariIni extends StatelessWidget {
                         right: getProportionateScreenWidth(
                       10,
                     )),
-                    width: getProportionateScreenWidth(132),
-                    height: getProportionateScreenHeight(231),
+                    width: getProportionateScreenWidth(152),
+                    height: getProportionateScreenHeight(252),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
                       boxShadow: [
@@ -75,8 +75,8 @@ class DealsHariIni extends StatelessWidget {
                         right: getProportionateScreenWidth(
                       10,
                     )),
-                    width: getProportionateScreenWidth(132),
-                    height: getProportionateScreenHeight(231),
+                    width: getProportionateScreenWidth(152),
+                    height: getProportionateScreenHeight(252),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
                       boxShadow: [
@@ -98,8 +98,8 @@ class DealsHariIni extends StatelessWidget {
                         right: getProportionateScreenWidth(
                       10,
                     )),
-                    width: getProportionateScreenWidth(132),
-                    height: getProportionateScreenHeight(231),
+                    width: getProportionateScreenWidth(152),
+                    height: getProportionateScreenHeight(252),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
                       boxShadow: [
@@ -121,8 +121,8 @@ class DealsHariIni extends StatelessWidget {
                         right: getProportionateScreenWidth(
                       10,
                     )),
-                    width: getProportionateScreenWidth(132),
-                    height: getProportionateScreenHeight(231),
+                    width: getProportionateScreenWidth(152),
+                    height: getProportionateScreenHeight(252),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
                       boxShadow: [
