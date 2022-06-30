@@ -27,7 +27,7 @@ class HomeFlashSale extends StatelessWidget {
                   'Spesial warga Semarang',
                   style: kPrimaryTextStyle.copyWith(
                     fontSize: getProportionateScreenWidth(15),
-                    fontWeight: FontWeight.w900,
+                    fontWeight: FontWeight.w800,
                   ),
                 ),
                 SizedBox(
@@ -84,7 +84,7 @@ class HomeFlashSale extends StatelessWidget {
                       'Lihat semua',
                       style: kPrimaryTextStyle.copyWith(
                         fontSize: getProportionateScreenWidth(12),
-                        fontWeight: FontWeight.w900,
+                        fontWeight: FontWeight.w800,
                         color: kPrimaryColor,
                       ),
                     ),

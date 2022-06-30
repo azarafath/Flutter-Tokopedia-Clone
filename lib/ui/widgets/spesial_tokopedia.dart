@@ -32,7 +32,7 @@ class SpesialTokopedia extends StatelessWidget {
                   'Lihat semua',
                   style: kPrimaryTextStyle.copyWith(
                     fontSize: getProportionateScreenWidth(12),
-                    fontWeight: FontWeight.w900,
+                    fontWeight: FontWeight.w800,
                     color: kPrimaryColor,
                   ),
                 ),
